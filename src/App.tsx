@@ -4,22 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Layout } from './components/Layout';
 import { appTheme } from './config/theme';
-
-const Home = () => (
-  <Box>
-    <Typography variant='h3' component='h1'>
-      Home
-    </Typography>
-  </Box>
-);
-
-const About = () => (
-  <Box>
-    <Typography variant='h3' component='h1'>
-      About
-    </Typography>
-  </Box>
-);
+import { CreateCategory } from './features/categories/CreateCategory';
+import { EditCategory } from './features/categories/EditCategory';
+import { ListCategory } from './features/categories/ListCategory';
 
 export default function App() {
   return (
@@ -33,10 +20,20 @@ export default function App() {
       >
         <Header />
         <Layout>
-          <h1>Welcome to React Router!</h1>
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='about' element={<About />} />
+            <Route path='/' element={<ListCategory />} />
+            <Route path='/categories' element={<ListCategory />} />
+            <Route path='/categories/create' element={<CreateCategory />} />
+            <Route path='/categories/edit/:id' element={<EditCategory />} />
+            <Route
+              path='*'
+              element={
+                <Box sx={{ color: 'white' }}>
+                  <Typography variant='h1'>404</Typography>
+                  <Typography variant='h2'>Page not found</Typography>
+                </Box>
+              }
+            />
           </Routes>
         </Layout>
       </Box>
