@@ -5,8 +5,8 @@ import { Header } from './components/Header';
 import { Layout } from './components/Layout';
 import { appTheme } from './config/theme';
 import { CreateCategory } from './features/categories/CreateCategory';
-import { EditCategory } from './features/categories/EditCategory';
 import { ListCategory } from './features/categories/ListCategory';
+import { UpdateCategory } from './features/categories/UpdateCategory';
 
 export default function App() {
   return (
@@ -24,7 +24,7 @@ export default function App() {
             <Route path='/' element={<ListCategory />} />
             <Route path='/categories' element={<ListCategory />} />
             <Route path='/categories/create' element={<CreateCategory />} />
-            <Route path='/categories/edit/:id' element={<EditCategory />} />
+            <Route path='/categories/update/:id' element={<UpdateCategory />} />
             <Route
               path='*'
               element={

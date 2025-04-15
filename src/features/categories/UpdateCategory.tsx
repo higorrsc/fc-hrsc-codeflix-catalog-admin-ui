@@ -1,9 +1,9 @@
 import { Box, Typography } from '@mui/material';
 
-export const EditCategory = () => (
+export const UpdateCategory = () => (
   <Box>
     <Typography variant='h3' component='h1'>
-      Edit Category Page
+      Update Category Page
     </Typography>
   </Box>
 );
