@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-interface Category {
+export interface Category {
   id: string;
   name: string;
   description: string | null;
@@ -11,7 +11,7 @@ interface Category {
   updated_at: string;
 }
 
-const emptyCategory: Category = {
+export const emptyCategory: Category = {
   id: '',
   name: '',
   description: '',
