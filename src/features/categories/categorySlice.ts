@@ -11,6 +11,16 @@ interface Category {
   updated_at: string;
 }
 
+const emptyCategory: Category = {
+  id: '',
+  name: '',
+  description: '',
+  is_active: false,
+  deleted_at: null,
+  created_at: '',
+  updated_at: '',
+};
+
 const category: Category = {
   id: 'ebf62d5c-12e5-57a0-947a-f6c72068f1f1',
   name: 'Olive',
@@ -52,5 +62,9 @@ const categoriesSlice = createSlice({
 });
 
 export const selectCategories = (state: RootState) => state.categories;
+export const selectCategoryById = (state: RootState, id: string) => {
+  const category = state.categories.find((category) => category.id === id);
+  return category || emptyCategory;
+};
 
 export default categoriesSlice.reducer;
