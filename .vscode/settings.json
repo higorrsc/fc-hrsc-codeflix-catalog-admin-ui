@@ -8,7 +8,7 @@
     "source.organizeImports": "always",
     "source.removeUnusedImports": "always"
   },
-  "cSpell.words": [],
+  "cSpell.words": ["Earum"],
   "typescript.inlayHints.parameterNames.enabled": "all",
   "typescript.inlayHints.parameterTypes.enabled": true
 }
