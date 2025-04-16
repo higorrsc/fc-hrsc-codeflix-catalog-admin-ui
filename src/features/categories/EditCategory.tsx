@@ -3,7 +3,8 @@ import { useSnackbar } from 'notistack';
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { Category, selectCategoryById, updateCategory } from './categorySlice';
+import { Category } from '../../types/Category';
+import { selectCategoryById, updateCategory } from './categorySlice';
 import { CategoryForm } from './components/CategoryForm';
 
 export const EditCategory = () => {

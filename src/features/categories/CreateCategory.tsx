@@ -2,7 +2,8 @@ import { Box, Paper, Typography } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import { useState } from 'react';
 import { useAppDispatch } from '../../app/hooks';
-import { Category, createCategory, emptyCategory } from './categorySlice';
+import { Category } from '../../types/Category';
+import { createCategory, emptyCategory } from './categorySlice';
 import { CategoryForm } from './components/CategoryForm';
 
 export const CreateCategory = () => {
