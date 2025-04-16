@@ -32,7 +32,7 @@ export function CategoryForm({
   return (
     <Box>
       <Box p={2}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <Grid container spacing={3}>
             <Grid size={{ xs: 12 }}>
               <FormControl fullWidth>
@@ -66,6 +66,7 @@ export function CategoryForm({
                       name='is_active'
                       color='secondary'
                       onChange={handleToggle}
+                      checked={category.is_active}
                       inputProps={{ 'aria-label': 'controlled' }}
                     />
                   }

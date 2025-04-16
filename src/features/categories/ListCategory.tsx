@@ -7,12 +7,14 @@ import {
   GridRowsProp,
   GridToolbar,
 } from '@mui/x-data-grid';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks';
-import { selectCategories } from './categorySlice';
+import { deleteCategory, selectCategories } from './categorySlice';
 
 export const ListCategory = () => {
   const categories = useAppSelector(selectCategories);
+  const dispatch = useDispatch();
 
   const componentProps = {
     toolbar: {
@@ -50,10 +52,15 @@ export const ListCategory = () => {
     {
       field: 'id',
       headerName: 'Actions',
+      type: 'string',
       flex: 1,
       renderCell: renderActionCell,
     },
   ];
+
+  function handleDelete(id: string) {
+    dispatch(deleteCategory(id));
+  }
 
   function renderNameCell(rowData: GridRenderCellParams) {
     return (
@@ -76,10 +83,7 @@ export const ListCategory = () => {
 
   function renderActionCell(rowData: GridRenderCellParams) {
     return (
-      <IconButton
-        color='secondary'
-        onClick={() => console.log('clicked', rowData.id)}
-      >
+      <IconButton color='secondary' onClick={() => handleDelete(rowData.value)}>
         <DeleteIcon />
       </IconButton>
     );
