@@ -1,9 +1,10 @@
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Box, Button, IconButton, Typography } from '@mui/material';
+import { Box, IconButton, Typography } from '@mui/material';
 import {
   DataGrid,
   GridColDef,
   GridFilterModel,
+  GridPaginationModel,
   GridRenderCellParams,
   GridRowsProp,
   GridToolbar,
@@ -68,6 +69,8 @@ export function CategoryTable({
 
   const rows: GridRowsProp = data ? mapDataToGridRows(data) : [];
 
+  const rowCount = data?.meta.total || 0;
+
   function renderNameCell(rowData: GridRenderCellParams) {
     return (
       <Link
@@ -106,21 +109,33 @@ export function CategoryTable({
     }));
   }
 
+  const handlePaginationModelChange = (
+    newPaginationModel: GridPaginationModel
+  ) => {
+    handleOnPageChange(newPaginationModel.page);
+    handleOnPageSizeChange(newPaginationModel.pageSize);
+  };
+
   return (
-    
-      <Box sx={{ display: 'flex', height: 600 }}>
-        <DataGrid
-          columns={columns}
-          rows={rows}
-          // disableColumnFilter
-          // disableColumnSelector
-          // disableDensitySelector
-          // disableRowSelectionOnClick
-          // pageSizeOptions={[2, 10, 20, 50, 100]}
-          // slotProps={componentProps}
-          // slots={{ toolbar: GridToolbar }}
-          />
-      </Box>
-    
+    <Box sx={{ display: 'flex', height: 600 }}>
+      <DataGrid
+        columns={columns}
+        rows={rows}
+        disableColumnFilter
+        disableColumnSelector
+        disableDensitySelector
+        disableRowSelectionOnClick
+        pageSizeOptions={[perPage]}
+        paginationModel={{ page: 0, pageSize: rowsPerPage ?? perPage }}
+        filterMode={'server'}
+        paginationMode={'server'}
+        loading={isFetching}
+        rowCount={rowCount}
+        slotProps={componentProps}
+        slots={{ toolbar: GridToolbar }}
+        onFilterModelChange={handleFilter}
+        onPaginationModelChange={handlePaginationModelChange}
+      />
+    </Box>
   );
 }
