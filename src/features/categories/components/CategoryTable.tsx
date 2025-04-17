@@ -14,6 +14,7 @@ import { Results } from '../../../types/Category';
 
 type Props = {
   data: Results | undefined;
+  page: number;
   perPage: number;
   rowsPerPage?: number[];
   isFetching: boolean;
@@ -25,6 +26,7 @@ type Props = {
 
 export function CategoryTable({
   data,
+  page,
   perPage,
   rowsPerPage,
   isFetching,
@@ -126,7 +128,7 @@ export function CategoryTable({
         disableDensitySelector
         disableRowSelectionOnClick
         pageSizeOptions={rowsPerPage}
-        paginationModel={{ page: 0, pageSize: perPage }}
+        paginationModel={{ page, pageSize: perPage }}
         paginationMode='server'
         filterMode='server'
         loading={isFetching}

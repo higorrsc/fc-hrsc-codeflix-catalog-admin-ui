@@ -29,24 +29,16 @@ export const ListCategory = () => {
   }
 
   function handleOnPageChange(page: number) {
-    options.page = page;
-    setOptions({ ...options, page: page + 1 });
+    setOptions((prev) => ({ ...prev, page: page + 1 }));
   }
 
   function handleOnPageSizeChange(perPage: number) {
-    options.perPage = perPage;
-    setOptions({ ...options, perPage });
+    setOptions((prev) => ({ ...prev, perPage }));
   }
 
   function handleOnFilterChange(filterModel: GridFilterModel) {
-    if (filterModel.quickFilterValues?.length) {
-      const search = filterModel.quickFilterValues.join('');
-      options.search = search;
-      setOptions({ ...options, search });
-    } else {
-      setOptions({ ...options, search: '' });
-    }
-    return;
+    const search = filterModel.quickFilterValues?.join('') ?? '';
+    setOptions((prev) => ({ ...prev, search }));
   }
 
   useEffect(() => {
@@ -78,6 +70,7 @@ export const ListCategory = () => {
       <CategoryTable
         data={data}
         isFetching={isFetching}
+        page={options.page - 1}
         perPage={options.perPage}
         rowsPerPage={options.rowsPerPage}
         handleDelete={handleDeleteCategory}
