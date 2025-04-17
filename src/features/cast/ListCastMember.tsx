@@ -7,6 +7,7 @@ import {
   useDeleteCastMemberMutation,
   useGetCastMembersQuery,
 } from './castMemberSlice';
+import { CastMemberTable } from './components/CastMemberTable';
 
 const initialOptions = {
   page: 1,
@@ -21,33 +22,29 @@ export const ListCastMember = () => {
   const { data, isFetching, error } = useGetCastMembersQuery(options);
   const [deleteCastMember, status] = useDeleteCastMemberMutation();
 
+  async function handleDeleteCastMember(id: string) {
+    await deleteCastMember({ id });
+  }
+
   function handleOnPageChange(page: number) {
-    options.page = page;
-    setOptions({ ...options, page });
+    setOptions((prev) => ({ ...prev, page: page + 1 }));
   }
 
   function handleOnPageSizeChange(perPage: number) {
-    options.perPage = perPage;
-    setOptions({ ...options, perPage });
+    setOptions((prev) => ({ ...prev, perPage }));
   }
 
   function handleOnFilterChange(filterModel: GridFilterModel) {
-    if (filterModel.quickFilterValues?.length) {
-      const search = filterModel.quickFilterValues.join('');
-      options.search = search;
-      setOptions({ ...options, search });
-    } else {
-      setOptions({ ...options, search: '' });
-    }
-    return;
+    const search = filterModel.quickFilterValues?.join('') ?? '';
+    setOptions((prev) => ({ ...prev, search }));
   }
 
   useEffect(() => {
     if (status.isSuccess) {
-      enqueueSnackbar('Success deleting category!', { variant: 'success' });
+      enqueueSnackbar('Success deleting cast member!', { variant: 'success' });
     }
     if (status.error) {
-      enqueueSnackbar('Error deleting category!', { variant: 'error' });
+      enqueueSnackbar('Error deleting cast member!', { variant: 'error' });
     }
   }, [status]);
 
@@ -68,16 +65,17 @@ export const ListCastMember = () => {
           New Cast Member
         </Button>
       </Box>
-      {/* <CategoryTable
-          data={data}
-          isFetching={isFetching}
-          perPage={perPage}
-          rowsPerPage={rowsPerPage}
-          handleDelete={handleDeleteCategory}
-          handleOnPageChange={handleOnPageChange}
-          handleOnPageSizeChange={handleOnPageSizeChange}
-          handleFilter={handleOnFilterChange}
-        /> */}
+      <CastMemberTable
+        data={data}
+        isFetching={isFetching}
+        page={options.page - 1}
+        perPage={options.perPage}
+        rowsPerPage={options.rowsPerPage}
+        handleDelete={handleDeleteCastMember}
+        handleOnPageChange={handleOnPageChange}
+        handleOnPageSizeChange={handleOnPageSizeChange}
+        handleFilter={handleOnFilterChange}
+      />
     </Box>
   );
 };
