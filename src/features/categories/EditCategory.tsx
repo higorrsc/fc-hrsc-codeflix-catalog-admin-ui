@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Category } from '../../types/Category';
 import {
-  emptyCategory,
+  initialState,
   useGetCategoryByIdQuery,
   useUpdateCategoryMutation,
 } from './categorySlice';
@@ -14,7 +14,7 @@ export const EditCategory = () => {
   const id = useParams().id || '';
   const { data: category, isFetching } = useGetCategoryByIdQuery({ id });
 
-  const [categoryState, setCategoryState] = useState<Category>(emptyCategory);
+  const [categoryState, setCategoryState] = useState<Category>(initialState);
   const [updateCategory, status] = useUpdateCategoryMutation();
 
   const { enqueueSnackbar } = useSnackbar();

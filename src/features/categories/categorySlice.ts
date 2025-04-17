@@ -6,7 +6,7 @@ import {
 } from '../../types/Category';
 import { apiSlice } from '../api/apiSlice';
 
-export const emptyCategory: Category = {
+export const initialState: Category = {
   id: '',
   name: '',
   description: '',

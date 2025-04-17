@@ -2,13 +2,13 @@ import { Box, Paper, Typography } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { Category } from '../../types/Category';
-import { emptyCategory, useCreateCategoryMutation } from './categorySlice';
+import { initialState, useCreateCategoryMutation } from './categorySlice';
 import { CategoryForm } from './components/CategoryForm';
 
 export const CreateCategory = () => {
   const [createCategory, status] = useCreateCategoryMutation();
   const [isDisabled, setIsDisabled] = useState(false);
-  const [categoryState, setCategoryState] = useState<Category>(emptyCategory);
+  const [categoryState, setCategoryState] = useState<Category>(initialState);
 
   const { enqueueSnackbar } = useSnackbar();
 
