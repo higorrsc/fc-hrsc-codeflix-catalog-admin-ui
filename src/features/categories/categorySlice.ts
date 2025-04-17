@@ -29,9 +29,12 @@ function parseQueryParams(params: CategoryParams) {
   return queryParams.toString();
 }
 
-function getCategories({ page = 1, perPage = 10, search = '' }) {
-  const params = { page, perPage, search, isActive: true };
-  return `${endpointUrl}?${parseQueryParams(params)}`;
+function createCategoryMutation(category: Category) {
+  return {
+    url: endpointUrl,
+    method: 'POST',
+    body: category,
+  };
 }
 
 function deleteCategoryMutation(category: Category) {
@@ -41,26 +44,43 @@ function deleteCategoryMutation(category: Category) {
   };
 }
 
-function createCategoryMutation(category: Category) {
+function getCategories({ page = 1, perPage = 10, search = '' }) {
+  const params = { page, perPage, search, isActive: true };
+  return `${endpointUrl}?${parseQueryParams(params)}`;
+}
+
+function getCategoryById({ id }: { id: string }) {
+  return `${endpointUrl}/${id}`;
+}
+
+function updateCategoryMutation(category: Category) {
   return {
-    url: endpointUrl,
-    method: 'POST',
+    url: `${endpointUrl}/${category.id}`,
+    method: 'PUT',
     body: category,
   };
 }
 
 export const categoriesApiSlice = apiSlice.injectEndpoints({
   endpoints: ({ query, mutation }) => ({
-    getCategories: query<Results, CategoryParams>({
-      query: getCategories,
-      providesTags: ['Categories'],
+    createCategory: mutation<Result, Category>({
+      query: createCategoryMutation,
+      invalidatesTags: ['Categories'],
     }),
     deleteCategory: mutation<Result, { id: string }>({
       query: deleteCategoryMutation,
       invalidatesTags: ['Categories'],
     }),
-    createCategory: mutation<Result, Category>({
-      query: createCategoryMutation,
+    getCategories: query<Results, CategoryParams>({
+      query: getCategories,
+      providesTags: ['Categories'],
+    }),
+    getCategoryById: query<Result, { id: string }>({
+      query: getCategoryById,
+      providesTags: ['Categories'],
+    }),
+    updateCategory: mutation<Result, Category>({
+      query: updateCategoryMutation,
       invalidatesTags: ['Categories'],
     }),
   }),
@@ -139,7 +159,9 @@ export const { createCategory, updateCategory, deleteCategory } =
   categoriesSlice.actions;
 
 export const {
-  useGetCategoriesQuery,
-  useDeleteCategoryMutation,
   useCreateCategoryMutation,
+  useDeleteCategoryMutation,
+  useGetCategoriesQuery,
+  useGetCategoryByIdQuery,
+  useUpdateCategoryMutation,
 } = categoriesApiSlice;
