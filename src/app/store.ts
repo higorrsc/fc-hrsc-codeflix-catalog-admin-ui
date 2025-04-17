@@ -1,13 +1,10 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { apiSlice } from '../features/api/apiSlice';
-import categoriesReducer, {
-  categoriesApiSlice,
-} from '../features/categories/categorySlice';
+import { categoriesApiSlice } from '../features/categories/categorySlice';
 
 export const store = configureStore({
   reducer: {
-    categories: categoriesReducer,
-    [apiSlice.reducerPath]: apiSlice.reducer,
+    // [apiSlice.reducerPath]: apiSlice.reducer,
     [categoriesApiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
