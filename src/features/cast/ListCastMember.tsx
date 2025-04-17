@@ -1,13 +1,12 @@
 import { Box, Button, Typography } from '@mui/material';
 import { GridFilterModel } from '@mui/x-data-grid';
-import { useSnackbar } from 'notistack';
+import { enqueueSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  useDeleteCategoryMutation,
-  useGetCategoriesQuery,
-} from './categorySlice';
-import { CategoryTable } from './components/CategoryTable';
+  useDeleteCastMemberMutation,
+  useGetCastMembersQuery,
+} from './castMemberSlice';
 
 const initialOptions = {
   page: 1,
@@ -16,21 +15,15 @@ const initialOptions = {
   search: '',
 };
 
-export const ListCategory = () => {
+export const ListCastMember = () => {
   const [options, setOptions] = useState(initialOptions);
 
-  const { data, isFetching, error } = useGetCategoriesQuery(options);
-  const [deleteCategory, deleteCategoryStatus] = useDeleteCategoryMutation();
-
-  const { enqueueSnackbar } = useSnackbar();
-
-  async function handleDeleteCategory(id: string) {
-    await deleteCategory({ id });
-  }
+  const { data, isFetching, error } = useGetCastMembersQuery(options);
+  const [deleteCastMember, status] = useDeleteCastMemberMutation();
 
   function handleOnPageChange(page: number) {
     options.page = page;
-    setOptions({ ...options, page: page + 1 });
+    setOptions({ ...options, page });
   }
 
   function handleOnPageSizeChange(perPage: number) {
@@ -50,16 +43,16 @@ export const ListCategory = () => {
   }
 
   useEffect(() => {
-    if (deleteCategoryStatus.isSuccess) {
+    if (status.isSuccess) {
       enqueueSnackbar('Success deleting category!', { variant: 'success' });
     }
-    if (deleteCategoryStatus.error) {
+    if (status.error) {
       enqueueSnackbar('Error deleting category!', { variant: 'error' });
     }
-  }, [deleteCategoryStatus, enqueueSnackbar]);
+  }, [status]);
 
   if (error) {
-    return <Typography>Error fetching categories.</Typography>;
+    return <Typography>Error fetching cast members.</Typography>;
   }
 
   return (
@@ -69,22 +62,22 @@ export const ListCategory = () => {
           variant='contained'
           color='secondary'
           component={Link}
-          to='/categories/create'
+          to='/cast-members/create'
           style={{ marginBottom: '1rem' }}
         >
-          New Category
+          New Cast Member
         </Button>
       </Box>
-      <CategoryTable
-        data={data}
-        isFetching={isFetching}
-        perPage={options.perPage}
-        rowsPerPage={options.rowsPerPage}
-        handleDelete={handleDeleteCategory}
-        handleOnPageChange={handleOnPageChange}
-        handleOnPageSizeChange={handleOnPageSizeChange}
-        handleFilter={handleOnFilterChange}
-      />
+      {/* <CategoryTable
+          data={data}
+          isFetching={isFetching}
+          perPage={perPage}
+          rowsPerPage={rowsPerPage}
+          handleDelete={handleDeleteCategory}
+          handleOnPageChange={handleOnPageChange}
+          handleOnPageSizeChange={handleOnPageSizeChange}
+          handleFilter={handleOnFilterChange}
+        /> */}
     </Box>
   );
 };
