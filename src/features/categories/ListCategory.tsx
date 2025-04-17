@@ -10,12 +10,15 @@ import {
 import { CategoryTable } from './components/CategoryTable';
 
 export const ListCategory = () => {
-  const { data, isFetching, error } = useGetCategoriesQuery();
-  const [deleteCategory, deleteCategoryStatus] = useDeleteCategoryMutation();
-
+  const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState([10, 25, 50, 100]);
   const [perPage, setPerPage] = useState(10);
   const [search, setSearch] = useState('');
+
+  const options = { page, perPage, search };
+
+  const { data, isFetching, error } = useGetCategoriesQuery(options);
+  const [deleteCategory, deleteCategoryStatus] = useDeleteCategoryMutation();
 
   const { enqueueSnackbar } = useSnackbar();
 
