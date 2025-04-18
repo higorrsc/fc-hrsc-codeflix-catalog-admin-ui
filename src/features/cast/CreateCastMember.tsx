@@ -25,13 +25,13 @@ export const CreateCastMember = () => {
 
   useEffect(() => {
     if (status.isSuccess) {
-      enqueueSnackbar('CastMember created successfully!', {
+      enqueueSnackbar('Cast member created successfully!', {
         variant: 'success',
       });
       setIsDisabled(true);
     }
     if (status.error) {
-      enqueueSnackbar('Error creating castMember!', { variant: 'error' });
+      enqueueSnackbar('Error creating cast member!', { variant: 'error' });
     }
   }, [status, enqueueSnackbar]);
 

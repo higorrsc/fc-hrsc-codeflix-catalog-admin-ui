@@ -35,12 +35,12 @@ export const EditCastMember = () => {
       setCastMemberState(castMember.data);
     }
     if (status.isSuccess) {
-      enqueueSnackbar('CastMember updated successfully!', {
+      enqueueSnackbar('Cast member updated successfully!', {
         variant: 'success',
       });
     }
     if (status.error) {
-      enqueueSnackbar('Error updating castMember!', { variant: 'error' });
+      enqueueSnackbar('Error updating cast member!', { variant: 'error' });
     }
   }, [castMember, status, enqueueSnackbar]);
 
