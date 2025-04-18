@@ -11,7 +11,7 @@ import {
 } from '@mui/x-data-grid';
 import { Link } from 'react-router-dom';
 import { Results } from '../../../types/CastMember';
-import { getCastMemberTypeLabel } from '../../../utils/CastMember';
+import { getCastMemberTypeOptions } from '../../../utils/CastMember';
 
 type Props = {
   data: Results | undefined;
@@ -88,9 +88,13 @@ export function CastMemberTable({
   }
 
   function renderTypeCell(rowData: GridRenderCellParams) {
+    const options = getCastMemberTypeOptions();
+    const selectedOption = options.find(
+      (option) => option.value === rowData.value
+    );
     return (
       <Typography color='primary'>
-        {getCastMemberTypeLabel(rowData.value)}
+        {selectedOption ? selectedOption.label : 'Unknown'}
       </Typography>
     );
   }

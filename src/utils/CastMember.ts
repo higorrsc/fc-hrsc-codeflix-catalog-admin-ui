@@ -1,15 +1,12 @@
 import { CastMemberType } from '../types/CastMember';
 
-const castMemberTypeLabelMap: Record<CastMemberType, string> = {
-  [CastMemberType.ACTOR]: 'Actor',
-  [CastMemberType.DIRECTOR]: 'Director',
-};
-
-export function getCastMemberTypeLabel(type: CastMemberType): string {
-  return castMemberTypeLabelMap[type] || 'Unknown';
+export function getCastMemberTypeOptions() {
+  return Object.values(CastMemberType)
+    .filter((value) => typeof value === 'number')
+    .map((value) => ({
+      value,
+      label:
+        CastMemberType[value as CastMemberType].charAt(0) +
+        CastMemberType[value as CastMemberType].slice(1).toLowerCase(),
+    }));
 }
-
-export const castMemberTypeOptions = [
-  { value: CastMemberType.ACTOR, label: 'Actor' },
-  { value: CastMemberType.DIRECTOR, label: 'Director' },
-];

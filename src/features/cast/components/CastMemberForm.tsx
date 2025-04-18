@@ -13,7 +13,7 @@ import {
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CastMember } from '../../../types/CastMember';
-import { castMemberTypeOptions } from '../../../utils/CastMember';
+import { getCastMemberTypeOptions } from '../../../utils/CastMember';
 
 export type Props = {
   castMember: CastMember;
@@ -57,7 +57,7 @@ export function CastMemberForm({
                   onChange={handleChange}
                   value={castMember.type}
                 >
-                  {castMemberTypeOptions.map((option) => (
+                  {getCastMemberTypeOptions().map((option) => (
                     <FormControlLabel
                       key={option.value}
                       value={option.value}
