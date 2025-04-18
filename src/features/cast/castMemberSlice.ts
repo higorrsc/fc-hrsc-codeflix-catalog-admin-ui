@@ -11,8 +11,7 @@ const endpointUrl = '/cast_members';
 export const initialState: CastMember = {
   id: '',
   name: '',
-  // @ts-ignore
-  type: 0,
+  type: 1,
   created_at: '',
   updated_at: '',
   deleted_at: '',
