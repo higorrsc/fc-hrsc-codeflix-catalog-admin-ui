@@ -2,6 +2,7 @@ import { GridFilterModel } from '@mui/x-data-grid';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import { CastMemberType } from '../../../types/CastMember';
 import { CastMemberTable } from './CastMemberTable';
 
 const Props = {
@@ -10,7 +11,7 @@ const Props = {
       {
         id: '1',
         name: 'Teste',
-        type: 1,
+        type: CastMemberType.DIRECTOR,
         deleted_at: '',
         created_at: '2025-04-18T21:00:00.000000Z',
         updated_at: '2025-04-18T21:00:00.000000Z',
@@ -64,7 +65,24 @@ describe('Test CastMemberTable', () => {
     const { asFragment } = render(
       <CastMemberTable
         {...Props}
-        data={{ data: [], links: {} as any, meta: {} as any }}
+        data={{ data: [], links: {}, meta: {} } as any}
+      />,
+      {
+        wrapper: BrowserRouter,
+      }
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should render CastMemberTable with correct type', () => {
+    const { asFragment } = render(
+      <CastMemberTable
+        {...Props}
+        data={{
+          data: [{ ...Props.data.data[0], type: CastMemberType.ACTOR }],
+          links: { ...Props.data.links },
+          meta: { ...Props.data.meta },
+        }}
       />,
       {
         wrapper: BrowserRouter,
