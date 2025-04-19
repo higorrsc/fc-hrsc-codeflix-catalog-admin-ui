@@ -26,4 +26,31 @@ describe('Test CastMemberForm', () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
+
+  it('should render CastMemberForm with loading state correctly', () => {
+    const { asFragment } = render(<CastMemberForm {...Props} isLoading />, {
+      wrapper: BrowserRouter,
+    });
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should render CastMemberForm with disabled state correctly', () => {
+    const { asFragment } = render(<CastMemberForm {...Props} isDisabled />, {
+      wrapper: BrowserRouter,
+    });
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should render CastMemberForm with disabled state and loading state correctly', () => {
+    const { asFragment } = render(
+      <CastMemberForm {...Props} isDisabled isLoading />,
+      {
+        wrapper: BrowserRouter,
+      }
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
