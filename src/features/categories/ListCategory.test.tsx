@@ -1,23 +1,10 @@
 import { http, HttpResponse } from 'msw';
-import { setupServer } from 'msw/node';
-import { renderWithProviders, screen } from '../../utils/test-utils';
+import { server } from '../../mocks/server';
+import { renderWithProviders, screen, waitFor } from '../../utils/test-utils';
 import { baseUrl } from '../api/apiSlice';
 import { ListCategory } from './ListCategory';
-import { categoryResponse } from './mocks';
-
-export const handlers = [
-  http.get(`${baseUrl}/categories`, () => {
-    return HttpResponse.json(categoryResponse);
-  }),
-];
-
-const server = setupServer(...handlers);
 
 describe('Test ListCategory page', () => {
-  beforeAll(() => server.listen());
-  afterEach(() => server.resetHandlers());
-  afterAll(() => server.close());
-
   it('should render correctly', () => {
     const { asFragment } = renderWithProviders(<ListCategory />);
     expect(asFragment()).toMatchSnapshot();
@@ -27,5 +14,28 @@ describe('Test ListCategory page', () => {
     renderWithProviders(<ListCategory />);
     const loading = screen.getByRole('progressbar');
     expect(loading).toBeInTheDocument();
+  });
+
+  it('should render success state', async () => {
+    renderWithProviders(<ListCategory />);
+    await waitFor(() => {
+      const name = screen.getByText('Cornsilk');
+      expect(name).toBeInTheDocument();
+    });
+  });
+
+  it('should render error state', async () => {
+    server.use(
+      http.get(`${baseUrl}/categories`, () => {
+        return new HttpResponse(null, {
+          status: 500,
+        });
+      })
+    );
+    renderWithProviders(<ListCategory />);
+    await waitFor(() => {
+      const errorMessage = screen.getByText('Error fetching categories.');
+      expect(errorMessage).toBeInTheDocument();
+    });
   });
 });
