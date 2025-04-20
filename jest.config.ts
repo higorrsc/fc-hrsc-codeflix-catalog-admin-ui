@@ -6,7 +6,10 @@ const config: Config = {
   preset: 'ts-jest',
   rootDir: __dirname,
   roots: ['<rootDir>/src'],
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+  setupFilesAfterEnv: [
+    '<rootDir>/src/setupTests.ts',
+    '<rootDir>/jest.setup.ts',
+  ],
   testEnvironment: 'jest-fixed-jsdom',
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
