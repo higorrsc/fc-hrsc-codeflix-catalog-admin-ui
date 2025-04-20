@@ -11,6 +11,7 @@ const config: Config = {
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   transform: { '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest' },
   collectCoverage: true,
+  coverageReporters: ['html'],
 };
 
 export default config;
