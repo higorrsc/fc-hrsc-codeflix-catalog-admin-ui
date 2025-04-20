@@ -4,21 +4,17 @@ import React, { PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 
 import { ThemeProvider } from '@mui/system';
-import { configureStore } from '@reduxjs/toolkit';
 import { SnackbarProvider } from 'notistack';
 import { BrowserRouter } from 'react-router-dom';
-import type { RootState } from '../app/store';
+import { setupStore, type AppStore, type RootState } from '../app/store';
 import { appTheme } from '../config/theme';
-import { apiSlice } from '../features/api/apiSlice';
-import { castMembersApiSlice } from '../features/cast/castMemberSlice';
-import { categoriesApiSlice } from '../features/categories/categorySlice';
 // As a basic setup, import your same slice reducers
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   preloadedState?: Partial<RootState>;
-  store?: ReturnType<typeof configureStore>;
+  store?: AppStore;
 }
 
 export function renderWithProviders(
@@ -27,17 +23,7 @@ export function renderWithProviders(
 ) {
   const {
     // Automatically create a store instance if no store was passed in
-    store = configureStore({
-      reducer: {
-        [categoriesApiSlice.reducerPath]: apiSlice.reducer,
-        // @ts-ignore
-        [castMembersApiSlice.reducerPath]: apiSlice.reducer,
-      },
-      // Adding the api middleware enables caching, invalidation, polling,
-      // and other useful features of `rtk-query`.
-      middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(apiSlice.middleware),
-    }),
+    store = setupStore(),
     ...renderOptions
   } = extendedRenderOptions;
 
@@ -59,3 +45,5 @@ export function renderWithProviders(
     ...render(ui, { wrapper: Wrapper, ...renderOptions }),
   };
 }
+
+export * from '@testing-library/react';
