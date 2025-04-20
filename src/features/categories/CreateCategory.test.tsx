@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import { renderWithProviders } from '../../utils/test-utils';
 import { CreateCategory } from './CreateCategory';
 

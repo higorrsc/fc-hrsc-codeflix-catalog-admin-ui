@@ -1,5 +1,4 @@
 import { GridFilterModel } from '@mui/x-data-grid';
-import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { CategoryTable } from './CategoryTable';
