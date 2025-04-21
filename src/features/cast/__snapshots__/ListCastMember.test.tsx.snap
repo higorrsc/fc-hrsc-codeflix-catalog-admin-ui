@@ -9,7 +9,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
       class="MuiBox-root css-1bvc4cc"
     >
       <a
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary css-1mffwr6-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary css-1mns5ui-MuiButtonBase-root-MuiButton-root"
         href="/cast-members/create"
         style="margin-bottom: 1rem;"
         tabindex="0"
@@ -21,7 +21,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
       class="MuiBox-root css-1fat0eg"
     >
       <div
-        class="MuiDataGrid-root MuiDataGrid-root--densityStandard MuiDataGrid-withBorderColor css-1q97mo7-MuiDataGrid-root"
+        class="MuiDataGrid-root MuiDataGrid-root--densityStandard MuiDataGrid-withBorderColor css-8y5i81-MuiDataGrid-root"
         style="--DataGrid-hasScrollX: 0; --DataGrid-hasScrollY: 0; --DataGrid-scrollbarSize: 0px; --DataGrid-rowWidth: 0px; --DataGrid-columnsTotalWidth: 0px; --DataGrid-leftPinnedWidth: 0px; --DataGrid-rightPinnedWidth: 0px; --DataGrid-headerHeight: 56px; --DataGrid-headersTotalHeight: 56px; --DataGrid-topContainerHeight: 56px; --DataGrid-bottomContainerHeight: 0px; --height: 52px;"
       >
         <div
@@ -31,7 +31,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="menu"
             aria-label="Export"
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary css-10c7q0f-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary css-1ccsd5i-MuiButtonBase-root-MuiButton-root"
             data-mui-internal-clone-element="true"
             id="«r7»"
             tabindex="0"
@@ -59,10 +59,10 @@ exports[`Test ListCastMember page should render correctly 1`] = `
           />
           <div
             aria-label="Search"
-            class="MuiFormControl-root MuiTextField-root MuiDataGrid-toolbarQuickFilter css-1g2c04k-MuiFormControl-root-MuiTextField-root-MuiDataGrid-toolbarQuickFilter"
+            class="MuiFormControl-root MuiTextField-root MuiDataGrid-toolbarQuickFilter css-1ka3pnz-MuiFormControl-root-MuiTextField-root-MuiDataGrid-toolbarQuickFilter"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd css-1yriczm-MuiInputBase-root-MuiInput-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd css-5h82ro-MuiInputBase-root-MuiInput-root"
             >
               <svg
                 aria-hidden="true"
@@ -77,7 +77,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
               </svg>
               <input
                 aria-invalid="false"
-                class="MuiInputBase-input MuiInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-1osecgj-MuiInputBase-input-MuiInput-input"
+                class="MuiInputBase-input MuiInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-v8l2vu-MuiInputBase-input-MuiInput-input"
                 id="«rb»"
                 placeholder="Search…"
                 type="search"
@@ -85,7 +85,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
               />
               <button
                 aria-label="Clear"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-mfoaz7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1ay0yn9-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
               >
@@ -172,7 +172,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
                         >
                           <button
                             aria-label="Sort"
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-18fqpi6-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-155wbr6-MuiButtonBase-root-MuiIconButton-root"
                             field="name"
                             tabindex="-1"
                             title="Sort"
@@ -199,7 +199,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
                           aria-expanded="false"
                           aria-haspopup="menu"
                           aria-label="Name column menu"
-                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiDataGrid-menuIconButton css-18fqpi6-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiDataGrid-menuIconButton css-155wbr6-MuiButtonBase-root-MuiIconButton-root"
                           data-mui-internal-clone-element="true"
                           id="«rj»"
                           tabindex="-1"
@@ -272,7 +272,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
                         >
                           <button
                             aria-label="Sort"
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-18fqpi6-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-155wbr6-MuiButtonBase-root-MuiIconButton-root"
                             field="type"
                             tabindex="-1"
                             title="Sort"
@@ -299,7 +299,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
                           aria-expanded="false"
                           aria-haspopup="menu"
                           aria-label="Type column menu"
-                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiDataGrid-menuIconButton css-18fqpi6-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiDataGrid-menuIconButton css-155wbr6-MuiButtonBase-root-MuiIconButton-root"
                           data-mui-internal-clone-element="true"
                           id="«rp»"
                           tabindex="-1"
@@ -372,7 +372,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
                         >
                           <button
                             aria-label="Sort"
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-18fqpi6-MuiButtonBase-root-MuiIconButton-root"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-155wbr6-MuiButtonBase-root-MuiIconButton-root"
                             field="id"
                             tabindex="-1"
                             title="Sort"
@@ -399,7 +399,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
                           aria-expanded="false"
                           aria-haspopup="menu"
                           aria-label="Actions column menu"
-                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiDataGrid-menuIconButton css-18fqpi6-MuiButtonBase-root-MuiIconButton-root"
+                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiDataGrid-menuIconButton css-155wbr6-MuiButtonBase-root-MuiIconButton-root"
                           data-mui-internal-clone-element="true"
                           id="«rv»"
                           tabindex="-1"
@@ -461,7 +461,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
                   class="MuiDataGrid-overlay css-ok32b7-MuiDataGrid-overlay"
                 >
                   <span
-                    class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-3t4wpe-MuiCircularProgress-root"
+                    class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1wxecgq-MuiCircularProgress-root"
                     role="progressbar"
                     style="width: 40px; height: 40px;"
                   >
@@ -504,7 +504,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
         >
           <div />
           <div
-            class="MuiTablePagination-root css-10ln3mf-MuiTablePagination-root"
+            class="MuiTablePagination-root css-1hr2sou-MuiTablePagination-root"
           >
             <div
               class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-1gak8h1-MuiToolbar-root-MuiTablePagination-toolbar"
@@ -519,13 +519,13 @@ exports[`Test ListCastMember page should render correctly 1`] = `
                 Rows per page:
               </p>
               <div
-                class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-select MuiSelect-root MuiTablePagination-input css-1odyw3v-MuiInputBase-root-MuiTablePagination-select"
+                class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-select MuiSelect-root MuiTablePagination-input css-oegngy-MuiInputBase-root-MuiTablePagination-select"
               >
                 <div
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-labelledby="«re» «rd»"
-                  class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input css-1bi1vum-MuiSelect-select-MuiInputBase-input"
+                  class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input css-mmygx2-MuiSelect-select-MuiInputBase-input"
                   id="«rd»"
                   role="combobox"
                   tabindex="0"
@@ -541,7 +541,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
                 />
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiTablePagination-selectIcon MuiSelect-iconStandard css-1mp3mpx-MuiSvgIcon-root-MuiSelect-icon"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiTablePagination-selectIcon MuiSelect-iconStandard css-1gpuzre-MuiSvgIcon-root-MuiSelect-icon"
                   data-testid="ArrowDropDownIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -561,7 +561,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
               >
                 <button
                   aria-label="Go to previous page"
-                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-189ec4b-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-h7cjts-MuiButtonBase-root-MuiIconButton-root"
                   disabled=""
                   tabindex="-1"
                   title="Go to previous page"
@@ -581,7 +581,7 @@ exports[`Test ListCastMember page should render correctly 1`] = `
                 </button>
                 <button
                   aria-label="Go to next page"
-                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-189ec4b-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-h7cjts-MuiButtonBase-root-MuiIconButton-root"
                   disabled=""
                   tabindex="-1"
                   title="Go to next page"
