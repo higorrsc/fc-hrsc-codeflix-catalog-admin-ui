@@ -1,6 +1,11 @@
 import { http, HttpResponse } from 'msw';
 import { server } from '../../mocks/server';
-import { renderWithProviders, screen, waitFor } from '../../utils/test-utils';
+import {
+  fireEvent,
+  renderWithProviders,
+  screen,
+  waitFor,
+} from '../../utils/test-utils';
 import { baseUrl } from '../api/apiSlice';
 import { ListCategory } from './ListCategory';
 
@@ -36,6 +41,22 @@ describe('Test ListCategory page', () => {
     await waitFor(() => {
       const errorMessage = screen.getByText('Error fetching categories.');
       expect(errorMessage).toBeInTheDocument();
+    });
+  });
+
+  it('should handle on page change', async () => {
+    renderWithProviders(<ListCategory />);
+    await waitFor(() => {
+      const name = screen.getByText('Cornsilk');
+      expect(name).toBeInTheDocument();
+    });
+
+    const nextButton = screen.getByTestId('KeyboardArrowRightIcon');
+    fireEvent.click(nextButton);
+
+    await waitFor(() => {
+      const name = screen.getByText('BlueViolet');
+      expect(name).toBeInTheDocument();
     });
   });
 });
