@@ -59,4 +59,20 @@ describe('Test ListCategory page', () => {
       expect(name).toBeInTheDocument();
     });
   });
+
+  it('should handle filter categories', async () => {
+    renderWithProviders(<ListCategory />);
+    await waitFor(() => {
+      const name = screen.getByText('Cornsilk');
+      expect(name).toBeInTheDocument();
+    });
+
+    const input = screen.getByPlaceholderText('Search…');
+    fireEvent.change(input, { target: { value: 'Saddle' } });
+
+    await waitFor(() => {
+      const name = screen.getByText('SaddleBrown');
+      expect(name).toBeInTheDocument();
+    });
+  });
 });
