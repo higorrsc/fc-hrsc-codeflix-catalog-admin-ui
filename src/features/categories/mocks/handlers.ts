@@ -17,4 +17,7 @@ export const handlers = [
       return new HttpResponse(null, { status: 204 });
     }
   }),
+  http.post(`${baseUrl}/categories`, ({ request, params, cookies }) => {
+    return new HttpResponse(null, { status: 201 });
+  }),
 ];

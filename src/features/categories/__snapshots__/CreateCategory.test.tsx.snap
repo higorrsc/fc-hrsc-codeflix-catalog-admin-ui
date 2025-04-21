@@ -61,6 +61,7 @@ exports[`Test CreateCategory page should render correctly 1`] = `
                       <input
                         aria-invalid="false"
                         class="MuiInputBase-input MuiOutlinedInput-input css-j3jqhj-MuiInputBase-input-MuiOutlinedInput-input"
+                        data-testid="name-input"
                         id="«r0»"
                         name="name"
                         required=""
@@ -112,6 +113,7 @@ exports[`Test CreateCategory page should render correctly 1`] = `
                       <input
                         aria-invalid="false"
                         class="MuiInputBase-input MuiOutlinedInput-input css-j3jqhj-MuiInputBase-input-MuiOutlinedInput-input"
+                        data-testid="description-input"
                         id="«r1»"
                         name="description"
                         required=""
@@ -148,6 +150,7 @@ exports[`Test CreateCategory page should render correctly 1`] = `
                     >
                       <span
                         class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorSecondary css-w758z9-MuiButtonBase-root-MuiSwitch-switchBase"
+                        data-testid="is-active-input"
                       >
                         <input
                           aria-label="controlled"
