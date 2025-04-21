@@ -43,7 +43,9 @@ export function CategoryForm({
                   value={category.name}
                   disabled={isDisabled}
                   onChange={handleChange}
-                  inputProps={{ 'data-testid': 'name-input' }}
+                  slotProps={{
+                    htmlInput: { 'data-testid': 'name-input' },
+                  }}
                 />
               </FormControl>
             </Grid>
@@ -56,7 +58,9 @@ export function CategoryForm({
                   value={category.description}
                   disabled={isDisabled}
                   onChange={handleChange}
-                  inputProps={{ 'data-testid': 'description-input' }}
+                  slotProps={{
+                    htmlInput: { 'data-testid': 'description-input' },
+                  }}
                 />
               </FormControl>
             </Grid>
