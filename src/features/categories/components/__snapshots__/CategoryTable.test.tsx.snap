@@ -625,6 +625,7 @@ exports[`Test CategoryTable should render CategoryTable correctly 1`] = `
                 >
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeMedium css-uhgf5e-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="delete-category-button"
                     tabindex="0"
                     type="button"
                   >
@@ -1397,6 +1398,7 @@ exports[`Test CategoryTable should render CategoryTable with correct description
                 >
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeMedium css-uhgf5e-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="delete-category-button"
                     tabindex="0"
                     type="button"
                   >
@@ -2169,6 +2171,7 @@ exports[`Test CategoryTable should render CategoryTable with correct status 1`] 
                 >
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeMedium css-uhgf5e-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="delete-category-button"
                     tabindex="0"
                     type="button"
                   >
@@ -3648,6 +3651,7 @@ exports[`Test CategoryTable should render CategoryTable with loading 1`] = `
                 >
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeMedium css-uhgf5e-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="delete-category-button"
                     tabindex="0"
                     type="button"
                   >

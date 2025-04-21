@@ -94,7 +94,11 @@ export function CategoryTable({
 
   function renderActionCell(rowData: GridRenderCellParams) {
     return (
-      <IconButton color='secondary' onClick={() => handleDelete(rowData.value)}>
+      <IconButton
+        color='secondary'
+        onClick={() => handleDelete(rowData.value)}
+        data-testid='delete-category-button'
+      >
         <DeleteIcon />
       </IconButton>
     );

@@ -75,4 +75,50 @@ describe('Test ListCategory page', () => {
       expect(name).toBeInTheDocument();
     });
   });
+
+  it('should handle delete category success', async () => {
+    renderWithProviders(<ListCategory />);
+    await waitFor(() => {
+      const name = screen.getByText('Cornsilk');
+      expect(name).toBeInTheDocument();
+    });
+
+    const deleteButton = screen.getAllByTestId('delete-category-button')[0];
+    fireEvent.click(deleteButton);
+
+    await waitFor(() => {
+      const successMessage = screen.getByText('Success deleting category!');
+      expect(successMessage).toBeInTheDocument();
+    });
+  });
+
+  it('should handle delete category error', async () => {
+    server.use(
+      http.delete(
+        `${baseUrl}/categories/:id`,
+        ({ request, params, cookies }) => {
+          const { id } = params;
+          if (id === '9e871d7b-1113-4523-a624-d7f9ad7c2d97') {
+            return new HttpResponse(null, {
+              status: 500,
+            });
+          }
+        }
+      )
+    );
+
+    renderWithProviders(<ListCategory />);
+    await waitFor(() => {
+      const name = screen.getByText('Cornsilk');
+      expect(name).toBeInTheDocument();
+    });
+
+    const deleteButton = screen.getAllByTestId('delete-category-button')[0];
+    fireEvent.click(deleteButton);
+
+    await waitFor(() => {
+      const errorMessage = screen.getByText('Error deleting category!');
+      expect(errorMessage).toBeInTheDocument();
+    });
+  });
 });
