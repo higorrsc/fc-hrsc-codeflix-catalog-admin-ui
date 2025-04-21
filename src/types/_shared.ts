@@ -1,7 +1,7 @@
 export interface Links {
   first: string;
-  next: string;
-  prev: string;
+  next: string | null;
+  prev: string | null;
   last: string;
 }
 
