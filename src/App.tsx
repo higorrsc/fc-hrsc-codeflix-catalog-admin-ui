@@ -11,6 +11,9 @@ import { ListCastMember } from './features/cast/ListCastMember';
 import { CreateCategory } from './features/category/CreateCategory';
 import { EditCategory } from './features/category/EditCategory';
 import { ListCategory } from './features/category/ListCategory';
+import { CreateGenre } from './features/genre/CreateGenre';
+import { EditGenre } from './features/genre/EditGenre';
+import { ListGenre } from './features/genre/ListGenre';
 
 export default function App() {
   return (
@@ -45,6 +48,10 @@ export default function App() {
                 path='/cast-members/edit/:id'
                 element={<EditCastMember />}
               />
+              {/* Genres */}
+              <Route path='/genres' element={<ListGenre />} />
+              <Route path='/genres/create' element={<CreateGenre />} />
+              <Route path='/genres/edit/:id' element={<EditGenre />} />
               {/* 404 */}
               <Route
                 path='*'
