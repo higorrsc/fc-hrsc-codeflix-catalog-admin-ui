@@ -81,7 +81,11 @@ export function CastMemberTable({
 
   function renderActionCell(rowData: GridRenderCellParams) {
     return (
-      <IconButton color='secondary' onClick={() => handleDelete(rowData.value)}>
+      <IconButton
+        color='secondary'
+        onClick={() => handleDelete(rowData.value)}
+        data-testid='delete-cast-member-button'
+      >
         <DeleteIcon />
       </IconButton>
     );

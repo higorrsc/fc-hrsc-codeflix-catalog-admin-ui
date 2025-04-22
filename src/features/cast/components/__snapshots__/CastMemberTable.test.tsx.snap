@@ -511,6 +511,7 @@ exports[`Test CastMemberTable should render CastMemberTable correctly 1`] = `
                 >
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeMedium css-uhgf5e-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="delete-cast-member-button"
                     tabindex="0"
                     type="button"
                   >
@@ -1169,6 +1170,7 @@ exports[`Test CastMemberTable should render CastMemberTable with correct type 1`
                 >
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeMedium css-uhgf5e-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="delete-cast-member-button"
                     tabindex="0"
                     type="button"
                   >
@@ -2434,6 +2436,7 @@ exports[`Test CastMemberTable should render CastMemberTable with loading 1`] = `
                 >
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeMedium css-uhgf5e-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="delete-cast-member-button"
                     tabindex="0"
                     type="button"
                   >
