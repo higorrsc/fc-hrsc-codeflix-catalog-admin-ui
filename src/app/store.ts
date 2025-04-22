@@ -7,7 +7,7 @@ import {
 } from '@reduxjs/toolkit';
 import { apiSlice } from '../features/api/apiSlice';
 import { castMembersApiSlice } from '../features/cast/castMemberSlice';
-import { categoriesApiSlice } from '../features/categories/categorySlice';
+import { categoriesApiSlice } from '../features/category/categorySlice';
 
 const rootReducer = combineReducers({
   [categoriesApiSlice.reducerPath]: apiSlice.reducer,

@@ -8,9 +8,9 @@ import { appTheme } from './config/theme';
 import { CreateCastMember } from './features/cast/CreateCastMember';
 import { EditCastMember } from './features/cast/EditCastMember';
 import { ListCastMember } from './features/cast/ListCastMember';
-import { CreateCategory } from './features/categories/CreateCategory';
-import { EditCategory } from './features/categories/EditCategory';
-import { ListCategory } from './features/categories/ListCategory';
+import { CreateCategory } from './features/category/CreateCategory';
+import { EditCategory } from './features/category/EditCategory';
+import { ListCategory } from './features/category/ListCategory';
 
 export default function App() {
   return (
