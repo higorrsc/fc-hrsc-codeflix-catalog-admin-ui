@@ -44,6 +44,7 @@ export function CastMemberForm({
                   value={castMember.name}
                   disabled={isDisabled}
                   onChange={handleChange}
+                  slotProps={{ htmlInput: { 'data-testid': 'name-input' } }}
                 />
               </FormControl>
             </Grid>
@@ -56,6 +57,7 @@ export function CastMemberForm({
                   name='type'
                   onChange={handleChange}
                   value={castMember.type}
+                  data-testeid='type-input'
                 >
                   {getCastMemberTypeOptions().map((option) => (
                     <FormControlLabel

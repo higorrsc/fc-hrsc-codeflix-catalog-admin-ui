@@ -41,6 +41,7 @@ exports[`Test CastMemberForm should render CastMemberForm correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="name-input"
                     id="«r0»"
                     name="name"
                     required=""
@@ -77,6 +78,7 @@ exports[`Test CastMemberForm should render CastMemberForm correctly 1`] = `
               <div
                 aria-labelledby="Type of cast member"
                 class="MuiFormGroup-root MuiRadioGroup-root css-1mac7pt-MuiFormGroup-root"
+                data-testeid="type-input"
                 role="radiogroup"
               >
                 <label
@@ -243,6 +245,7 @@ exports[`Test CastMemberForm should render CastMemberForm with disabled state an
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="name-input"
                     disabled=""
                     id="«rc»"
                     name="name"
@@ -280,6 +283,7 @@ exports[`Test CastMemberForm should render CastMemberForm with disabled state an
               <div
                 aria-labelledby="Type of cast member"
                 class="MuiFormGroup-root MuiRadioGroup-root css-1mac7pt-MuiFormGroup-root"
+                data-testeid="type-input"
                 role="radiogroup"
               >
                 <label
@@ -447,6 +451,7 @@ exports[`Test CastMemberForm should render CastMemberForm with disabled state co
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="name-input"
                     disabled=""
                     id="«r8»"
                     name="name"
@@ -484,6 +489,7 @@ exports[`Test CastMemberForm should render CastMemberForm with disabled state co
               <div
                 aria-labelledby="Type of cast member"
                 class="MuiFormGroup-root MuiRadioGroup-root css-1mac7pt-MuiFormGroup-root"
+                data-testeid="type-input"
                 role="radiogroup"
               >
                 <label
@@ -651,6 +657,7 @@ exports[`Test CastMemberForm should render CastMemberForm with loading state cor
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
+                    data-testid="name-input"
                     id="«r4»"
                     name="name"
                     required=""
@@ -687,6 +694,7 @@ exports[`Test CastMemberForm should render CastMemberForm with loading state cor
               <div
                 aria-labelledby="Type of cast member"
                 class="MuiFormGroup-root MuiRadioGroup-root css-1mac7pt-MuiFormGroup-root"
+                data-testeid="type-input"
                 role="radiogroup"
               >
                 <label
