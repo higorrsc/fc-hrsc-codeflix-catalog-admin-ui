@@ -16,7 +16,6 @@ export const handlers = [
     if (id !== '9e871d7b-1113-4523-a624-d7f9ad7c2d97') {
       return new HttpResponse(null, { status: 404 });
     }
-    console.log(`MSW intercept id ${id}`);
     const category = categoryResponse.data.find((cat) => cat.id === id);
     return HttpResponse.json({ data: category });
   }),

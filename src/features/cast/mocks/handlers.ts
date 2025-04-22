@@ -16,7 +16,6 @@ export const handlers = [
     if (id !== 'ab7b1108-8346-472c-84cd-605c59760c87') {
       return new HttpResponse(null, { status: 404 });
     }
-    console.log(`MSW intercept id ${id}`);
     const castMember = castMemberResponse.data.find((cast) => cast.id === id);
     return HttpResponse.json({ data: castMember });
   }),
