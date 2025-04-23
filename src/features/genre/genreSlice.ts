@@ -1,5 +1,11 @@
-import { Results } from '../../types/Category';
-import { Genre, GenreParams, GenrePayload, Result } from '../../types/Genre';
+import { Results as CategoriesResults } from '../../types/Category';
+import {
+  Genre,
+  GenreParams,
+  GenrePayload,
+  Result,
+  Results,
+} from '../../types/Genre';
 import { apiSlice } from '../api/apiSlice';
 
 export const initialState: Genre = {
@@ -75,7 +81,7 @@ function updateGenre(data: GenrePayload) {
 
 export const genreApiSlice = apiSlice.injectEndpoints({
   endpoints: ({ query, mutation }) => ({
-    getAllCategories: query<Results, void>({
+    getAllCategories: query<CategoriesResults, void>({
       query: getAllCategories,
     }),
     createGenre: mutation<Genre, GenrePayload>({
