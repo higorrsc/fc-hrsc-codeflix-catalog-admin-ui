@@ -1,4 +1,5 @@
 import { Box, Paper, Typography } from '@mui/material';
+import { GenreForm } from './components/GenreForm';
 
 export const CreateGenre = () => {
   return (
@@ -6,9 +7,17 @@ export const CreateGenre = () => {
       <Paper>
         <Box p={2}>
           <Box mb={2}>
-            <Typography variant='h4'>Create Category</Typography>
+            <Typography variant='h4'>Create Genre</Typography>
           </Box>
         </Box>
+        <GenreForm
+          genre={{}}
+          categories={null}
+          isLoading={false}
+          isDisabled={false}
+          handleChange={() => {}}
+          handleSubmit={() => {}}
+        />
       </Paper>
     </Box>
   );
