@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import { Category } from '../../../types/Category';
 import { Genre } from '../../../types/Genre';
 
-export type Props = {
+type Props = {
   genre: Genre;
   categories?: Category[];
   isDisabled?: boolean;
@@ -25,8 +25,8 @@ export type Props = {
 export function GenreForm({
   genre,
   categories,
-  isDisabled,
-  isLoading,
+  isDisabled = false,
+  isLoading = false,
   handleSubmit,
   handleChange,
 }: Props) {
