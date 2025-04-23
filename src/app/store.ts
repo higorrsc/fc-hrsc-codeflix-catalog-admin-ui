@@ -8,11 +8,14 @@ import {
 import { apiSlice } from '../features/api/apiSlice';
 import { castMembersApiSlice } from '../features/cast/castMemberSlice';
 import { categoriesApiSlice } from '../features/category/categorySlice';
+import { genreApiSlice } from '../features/genre/genreSlice';
 
 const rootReducer = combineReducers({
   [categoriesApiSlice.reducerPath]: apiSlice.reducer,
   // @ts-ignore
   [castMembersApiSlice.reducerPath]: apiSlice.reducer,
+  // @ts-ignore
+  [genreApiSlice.reducerPath]: apiSlice.reducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
