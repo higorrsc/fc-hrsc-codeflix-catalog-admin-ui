@@ -1147,7 +1147,7 @@ export const genreResponse = {
   },
 };
 
-export const genreResposePage2 = {
+export const genreResponsePage2 = {
   data: [
     {
       id: '16549154-e84d-4a95-99f3-a0930f93ce01',
