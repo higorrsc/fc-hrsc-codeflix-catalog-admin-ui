@@ -11,10 +11,11 @@ import {
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Category } from '../../../types/Category';
+import { Genre } from '../../../types/Genre';
 
 export type Props = {
-  genre: any /*Genre;*/;
-  categories?: Category | null;
+  genre: Genre;
+  categories?: Category[];
   isDisabled?: boolean;
   isLoading?: boolean;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -52,11 +53,13 @@ export function GenreForm({
             <Grid size={{ xs: 12 }}>
               <Autocomplete
                 multiple
-                id='categories'
-                options={[]}
-                // getOptionLabel={(option) => option.title}
+                data-testid='categories-search'
+                loading={isLoading}
+                options={categories || []}
+                isOptionEqualToValue={(option, value) => option.id === value.id}
                 value={genre.categories}
                 disabled={isDisabled || !categories}
+                getOptionLabel={(option) => option.name}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -64,6 +67,16 @@ export function GenreForm({
                     data-testid='categories-input'
                   />
                 )}
+                renderOption={(props, option) => (
+                  <li {...props} key={option.id}>
+                    {option.name}
+                  </li>
+                )}
+                onChange={(_, value) => {
+                  handleChange({
+                    target: { name: 'categories', value },
+                  } as any);
+                }}
               />
             </Grid>
             <Grid size={{ xs: 12 }}>
