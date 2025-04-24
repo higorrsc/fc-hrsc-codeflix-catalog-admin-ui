@@ -13,7 +13,7 @@ export const handlers = [
   }),
   http.get(`${baseUrl}/genres/:id`, ({ request, params, cookies }) => {
     const { id } = params;
-    if (id !== '16549154-e84d-4a95-99f3-a0930f93ce01') {
+    if (id !== '56250310-7ff5-4346-a95d-76e26f7d4509') {
       return new HttpResponse(null, { status: 404 });
     }
     const genre = genreResponse.data.find((cat) => cat.id === id);
@@ -21,7 +21,7 @@ export const handlers = [
   }),
   http.delete(`${baseUrl}/genres/:id`, ({ request, params, cookies }) => {
     const { id } = params;
-    if (id === '16549154-e84d-4a95-99f3-a0930f93ce01') {
+    if (id === '56250310-7ff5-4346-a95d-76e26f7d4509') {
       return new HttpResponse(null, { status: 204 });
     }
   }),
@@ -29,7 +29,7 @@ export const handlers = [
     return new HttpResponse(null, { status: 201 });
   }),
   http.put(
-    `${baseUrl}/genres/16549154-e84d-4a95-99f3-a0930f93ce01`,
+    `${baseUrl}/genres/56250310-7ff5-4346-a95d-76e26f7d4509`,
     ({ request, params, cookies }) => {
       return new HttpResponse(null, { status: 200 });
     }
