@@ -14,6 +14,9 @@ import { ListCategory } from './features/category/ListCategory';
 import { CreateGenre } from './features/genre/CreateGenre';
 import { EditGenre } from './features/genre/EditGenre';
 import { ListGenre } from './features/genre/ListGenre';
+import { CreateVideo } from './features/video/CreateVideo';
+import { EditVideo } from './features/video/EditVideo';
+import { ListVideo } from './features/video/ListVideo';
 
 export default function App() {
   return (
@@ -52,6 +55,10 @@ export default function App() {
               <Route path='/genres' element={<ListGenre />} />
               <Route path='/genres/create' element={<CreateGenre />} />
               <Route path='/genres/edit/:id' element={<EditGenre />} />
+              {/* Video */}
+              <Route path='/videos' element={<ListVideo />} />
+              <Route path='/videos/create' element={<CreateVideo />} />
+              <Route path='/videos/edit/:id' element={<EditVideo />} />
               {/* 404 */}
               <Route
                 path='*'
