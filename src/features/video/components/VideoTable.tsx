@@ -1,5 +1,5 @@
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Box, IconButton, Typography } from '@mui/material';
+import { Box, Chip, IconButton, Tooltip, Typography } from '@mui/material';
 import {
   DataGrid,
   GridColDef,
@@ -43,15 +43,22 @@ export function VideoTable({
 
   const columns: GridColDef[] = [
     {
-      field: 'name',
-      headerName: 'Name',
+      field: 'title',
+      headerName: 'Title',
       flex: 1,
       renderCell: renderNameCell,
     },
     {
-      field: 'createAt',
-      headerName: 'Create At',
+      field: 'genres',
+      headerName: 'Genres',
       flex: 1,
+      renderCell: renderArrayToChipCell,
+    },
+    {
+      field: 'categories',
+      headerName: 'Categories',
+      flex: 1,
+      renderCell: renderArrayToChipCell,
     },
     {
       field: 'id',
@@ -77,6 +84,32 @@ export function VideoTable({
     );
   }
 
+  function renderArrayToChipCell(rowData: GridRenderCellParams) {
+    const chips = rowData.value;
+    const firstsChips = chips.slice(0, 2);
+    const remainChips = chips.length - firstsChips.length;
+
+    return (
+      <Box>
+        {firstsChips.map((chip: any, index: number) => (
+          <Chip
+            sx={{ fontSize: '0.6rem', marginRight: 1 }}
+            key={index}
+            label={chip.name}
+          />
+        ))}
+        {remainChips > 0 && (
+          <Tooltip title={chips.map((chip: any) => chip.name).join(', ')}>
+            <Chip
+              sx={{ fontSize: '0.6rem', marginRight: 1 }}
+              label={`+${remainChips}`}
+            />
+          </Tooltip>
+        )}
+      </Box>
+    );
+  }
+
   function renderActionCell(rowData: GridRenderCellParams) {
     return (
       <IconButton
@@ -93,7 +126,9 @@ export function VideoTable({
     const { data: videos } = data;
     return videos.map((video) => ({
       id: video.id,
-      name: video.title,
+      title: video.title,
+      genres: video.genres,
+      categories: video.categories,
       createAt: new Date(video.created_at).toLocaleDateString('pt-BR'),
     }));
   }
