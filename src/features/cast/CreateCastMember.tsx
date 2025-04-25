@@ -1,6 +1,6 @@
-import { Box, Paper, Typography } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
+import { Page } from '../../components/Page';
 import { CastMember } from '../../types/CastMember';
 import { initialState, useCreateCastMemberMutation } from './castMemberSlice';
 import { CastMemberForm } from './components/CastMemberForm';
@@ -36,21 +36,14 @@ export const CreateCastMember = () => {
   }, [status, enqueueSnackbar]);
 
   return (
-    <Box>
-      <Paper>
-        <Box p={2}>
-          <Box mb={2}>
-            <Typography variant='h4'>Create Cast Member</Typography>
-          </Box>
-        </Box>
-        <CastMemberForm
-          castMember={castMemberState}
-          isDisabled={isDisabled}
-          isLoading={false}
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-        />
-      </Paper>
-    </Box>
+    <Page title='Create Cast Member'>
+      <CastMemberForm
+        castMember={castMemberState}
+        isDisabled={isDisabled}
+        isLoading={false}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+      />
+    </Page>
   );
 };

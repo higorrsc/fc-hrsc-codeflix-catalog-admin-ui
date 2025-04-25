@@ -1,7 +1,7 @@
-import { Box, Paper, Typography } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Page } from '../../components/Page';
 import { CastMember } from '../../types/CastMember';
 import {
   initialState,
@@ -45,21 +45,14 @@ export const EditCastMember = () => {
   }, [castMember, status, enqueueSnackbar]);
 
   return (
-    <Box>
-      <Paper>
-        <Box p={2}>
-          <Box mb={2}>
-            <Typography variant='h4'>Edit Cast Member</Typography>
-          </Box>
-        </Box>
-        <CastMemberForm
-          castMember={castMemberState}
-          isDisabled={status.isLoading}
-          isLoading={isFetching}
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-        />
-      </Paper>
-    </Box>
+    <Page title='Edit Cast Member'>
+      <CastMemberForm
+        castMember={castMemberState}
+        isDisabled={status.isLoading}
+        isLoading={isFetching}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+      />
+    </Page>
   );
 };

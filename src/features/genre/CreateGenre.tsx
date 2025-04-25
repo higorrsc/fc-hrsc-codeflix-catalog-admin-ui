@@ -1,6 +1,6 @@
-import { Box, Paper, Typography } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
+import { Page } from '../../components/Page';
 import { Genre } from '../../types/Genre';
 import { mapGenreToForm } from '../../utils/Genre';
 import { GenreForm } from './components/GenreForm';
@@ -44,23 +44,16 @@ export const CreateGenre = () => {
   }, [status, enqueueSnackbar]);
 
   return (
-    <Box>
-      <Paper>
-        <Box p={2}>
-          <Box mb={2}>
-            <Typography variant='h4'>Create Genre</Typography>
-          </Box>
-        </Box>
-        <GenreForm
-          genre={genreState}
-          categories={categories?.data}
-          isLoading={status.isLoading}
-          isDisabled={isDisabled || status.isLoading}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          // handleToggle={handleToggle}
-        />
-      </Paper>
-    </Box>
+    <Page title='Create Genre'>
+      <GenreForm
+        genre={genreState}
+        categories={categories?.data}
+        isLoading={status.isLoading}
+        isDisabled={isDisabled || status.isLoading}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        // handleToggle={handleToggle}
+      />
+    </Page>
   );
 };

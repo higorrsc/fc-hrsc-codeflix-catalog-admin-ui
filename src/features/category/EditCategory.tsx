@@ -1,7 +1,7 @@
-import { Box, Paper, Typography } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Page } from '../../components/Page';
 import { Category } from '../../types/Category';
 import {
   initialState,
@@ -47,22 +47,15 @@ export const EditCategory = () => {
   }, [category, status, enqueueSnackbar]);
 
   return (
-    <Box>
-      <Paper>
-        <Box p={2}>
-          <Box mb={2}>
-            <Typography variant='h4'>Edit Category</Typography>
-          </Box>
-        </Box>
-        <CategoryForm
-          category={categoryState}
-          isDisabled={status.isLoading}
-          isLoading={isFetching}
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-          handleToggle={handleToggle}
-        />
-      </Paper>
-    </Box>
+    <Page title='Edit Category'>
+      <CategoryForm
+        category={categoryState}
+        isDisabled={status.isLoading}
+        isLoading={isFetching}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        handleToggle={handleToggle}
+      />
+    </Page>
   );
 };
