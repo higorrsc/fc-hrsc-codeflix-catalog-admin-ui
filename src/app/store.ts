@@ -6,16 +6,19 @@ import {
   ThunkAction,
 } from '@reduxjs/toolkit';
 import { apiSlice } from '../features/api/apiSlice';
-import { castMembersApiSlice } from '../features/cast/castMemberSlice';
-import { categoriesApiSlice } from '../features/category/categorySlice';
+import { castMemberApiSlice } from '../features/cast/castMemberSlice';
+import { categoryApiSlice } from '../features/category/categorySlice';
 import { genreApiSlice } from '../features/genre/genreSlice';
+import { videoApiSlice } from '../features/video/videoSlice';
 
 const rootReducer = combineReducers({
-  [categoriesApiSlice.reducerPath]: apiSlice.reducer,
+  [categoryApiSlice.reducerPath]: apiSlice.reducer,
   // @ts-ignore
-  [castMembersApiSlice.reducerPath]: apiSlice.reducer,
+  [castMemberApiSlice.reducerPath]: apiSlice.reducer,
   // @ts-ignore
   [genreApiSlice.reducerPath]: apiSlice.reducer,
+  // @ts-ignore
+  [videoApiSlice.reducerPath]: apiSlice.reducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
