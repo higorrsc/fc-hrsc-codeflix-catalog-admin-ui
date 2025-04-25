@@ -4,6 +4,7 @@ import {
   Result,
   Results,
 } from '../../types/Category';
+import { parseQueryParams } from '../../utils/queryParams';
 import { apiSlice } from '../api/apiSlice';
 
 export const initialState: Category = {
@@ -17,25 +18,6 @@ export const initialState: Category = {
 };
 
 const endpointUrl = '/categories';
-
-function parseQueryParams(params: CategoryParams) {
-  const queryParams = new URLSearchParams();
-
-  if (params.page) {
-    queryParams.append('page', params.page.toString());
-  }
-  if (params.perPage) {
-    queryParams.append('per_page', params.perPage.toString());
-  }
-  if (params.search) {
-    queryParams.append('search', params.search);
-  }
-  if (params.isActive !== undefined) {
-    queryParams.append('is_active', params.isActive.toString());
-  }
-
-  return queryParams.toString();
-}
 
 function createCategoryMutation(category: Category) {
   return {
@@ -52,7 +34,11 @@ function deleteCategoryMutation(category: Category) {
   };
 }
 
-function getCategories({ page = 1, perPage = 10, search = '' }) {
+function getCategories({
+  page = 1,
+  perPage = 10,
+  search = '',
+}: CategoryParams) {
   const params = { page, perPage, search, isActive: true };
   return `${endpointUrl}?${parseQueryParams(params)}`;
 }
@@ -69,7 +55,7 @@ function updateCategoryMutation(category: Category) {
   };
 }
 
-export const categoriesApiSlice = apiSlice.injectEndpoints({
+export const categoryApiSlice = apiSlice.injectEndpoints({
   endpoints: ({ query, mutation }) => ({
     createCategory: mutation<Result, Category>({
       query: createCategoryMutation,
@@ -100,4 +86,4 @@ export const {
   useGetCategoriesQuery,
   useGetCategoryByIdQuery,
   useUpdateCategoryMutation,
-} = categoriesApiSlice;
+} = categoryApiSlice;

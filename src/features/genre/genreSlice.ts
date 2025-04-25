@@ -6,6 +6,7 @@ import {
   Result,
   Results,
 } from '../../types/Genre';
+import { parseQueryParams } from '../../utils/queryParams';
 import { apiSlice } from '../api/apiSlice';
 
 export const initialState: Genre = {
@@ -23,25 +24,6 @@ export const initialState: Genre = {
 };
 
 const endpointUrl = '/genres';
-
-function parseQueryParams(params: GenreParams) {
-  const queryParams = new URLSearchParams();
-
-  if (params.page) {
-    queryParams.append('page', params.page.toString());
-  }
-  if (params.perPage) {
-    queryParams.append('per_page', params.perPage.toString());
-  }
-  if (params.search) {
-    queryParams.append('search', params.search);
-  }
-  if (params.isActive !== undefined) {
-    queryParams.append('is_active', params.isActive.toString());
-  }
-
-  return queryParams.toString();
-}
 
 function getAllCategories() {
   return `categories?all=true`;

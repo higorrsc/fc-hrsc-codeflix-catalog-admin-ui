@@ -4,6 +4,7 @@ import {
   Result,
   Results,
 } from '../../types/CastMember';
+import { parseQueryParams } from '../../utils/queryParams';
 import { apiSlice } from '../api/apiSlice';
 
 const endpointUrl = '/cast_members';
@@ -16,25 +17,6 @@ export const initialState: CastMember = {
   updated_at: '',
   deleted_at: '',
 };
-
-function parseQueryParams(params: CastMemberParams) {
-  const query = new URLSearchParams();
-
-  if (params.page) {
-    query.append('page', params.page.toString());
-  }
-  if (params.perPage) {
-    query.append('per_page', params.perPage.toString());
-  }
-  if (params.search) {
-    query.append('search', params.search);
-  }
-  if (params.type) {
-    query.append('type', params.type.toString());
-  }
-
-  return query.toString();
-}
 
 function createCastMember(castMember: CastMember) {
   return {
@@ -51,9 +33,14 @@ function deleteCastMember({ id }: { id: string }) {
   };
 }
 
-function getCastMembers(params: CastMemberParams) {
-  const { page = 1, perPage = 10, search, type } = params;
-  return `${endpointUrl}?${parseQueryParams({ page, perPage, search, type })}`;
+function getCastMembers({
+  page = 1,
+  perPage = 10,
+  search,
+  type,
+}: CastMemberParams) {
+  const params = { page, perPage, search, type };
+  return `${endpointUrl}?${parseQueryParams(params)}`;
 }
 
 function getCastMemberById({ id }: { id: string }) {
@@ -68,7 +55,7 @@ function updateCastMember(castMember: CastMember) {
   };
 }
 
-export const castMembersApiSlice = apiSlice.injectEndpoints({
+export const castMemberApiSlice = apiSlice.injectEndpoints({
   endpoints: ({ query, mutation }) => ({
     createCastMember: mutation<Result, CastMember>({
       query: createCastMember,
@@ -99,4 +86,4 @@ export const {
   useGetCastMemberByIdQuery,
   useGetCastMembersQuery,
   useUpdateCastMemberMutation,
-} = castMembersApiSlice;
+} = castMemberApiSlice;
