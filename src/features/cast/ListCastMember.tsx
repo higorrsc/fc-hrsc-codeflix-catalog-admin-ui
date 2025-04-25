@@ -3,18 +3,12 @@ import { GridFilterModel } from '@mui/x-data-grid';
 import { enqueueSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { initialOptions } from '../../config/defaults';
 import {
   useDeleteCastMemberMutation,
   useGetCastMembersQuery,
 } from './castMemberSlice';
 import { CastMemberTable } from './components/CastMemberTable';
-
-const initialOptions = {
-  page: 1,
-  perPage: 10,
-  rowsPerPage: [10, 25, 50, 100],
-  search: '',
-};
 
 export const ListCastMember = () => {
   const [options, setOptions] = useState(initialOptions);

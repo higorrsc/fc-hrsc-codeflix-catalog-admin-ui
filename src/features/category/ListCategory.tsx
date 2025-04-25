@@ -3,18 +3,12 @@ import { GridFilterModel } from '@mui/x-data-grid';
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { initialOptions } from '../../config/defaults';
 import {
   useDeleteCategoryMutation,
   useGetCategoriesQuery,
 } from './categorySlice';
 import { CategoryTable } from './components/CategoryTable';
-
-const initialOptions = {
-  page: 1,
-  perPage: 10,
-  rowsPerPage: [10, 25, 50, 100],
-  search: '',
-};
 
 export const ListCategory = () => {
   const [options, setOptions] = useState(initialOptions);

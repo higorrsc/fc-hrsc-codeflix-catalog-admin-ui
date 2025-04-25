@@ -3,15 +3,9 @@ import { GridFilterModel } from '@mui/x-data-grid';
 import { enqueueSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { initialOptions } from '../../config/defaults';
 import { VideoTable } from './components/VideoTable';
 import { useDeleteVideoMutation, useGetVideosQuery } from './videoSlice';
-
-const initialOptions = {
-  page: 1,
-  perPage: 10,
-  rowsPerPage: [10, 25, 50, 100],
-  search: '',
-};
 
 export const ListVideo = () => {
   const [options, setOptions] = useState(initialOptions);

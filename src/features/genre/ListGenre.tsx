@@ -3,15 +3,9 @@ import { GridFilterModel } from '@mui/x-data-grid';
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { initialOptions } from '../../config/defaults';
 import { GenreTable } from './components/GenreTable';
 import { useDeleteGenreMutation, useGetGenresQuery } from './genreSlice';
-
-const initialOptions = {
-  page: 1,
-  perPage: 10,
-  rowsPerPage: [10, 25, 50, 100],
-  search: '',
-};
 
 export const ListGenre = () => {
   const [options, setOptions] = useState(initialOptions);
