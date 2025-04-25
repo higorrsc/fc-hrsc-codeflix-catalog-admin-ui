@@ -14,3 +14,10 @@ export interface Meta {
   current_page: number;
   last_page: number;
 }
+
+export interface ListOptions {
+  page: number;
+  perPage: number;
+  rowsPerPage: number[];
+  search?: string;
+}
