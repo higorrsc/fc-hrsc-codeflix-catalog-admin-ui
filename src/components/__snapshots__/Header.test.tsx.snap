@@ -33,7 +33,7 @@ exports[`Test Header should render correctly 1`] = `
         <div
           class="MuiTypography-root MuiTypography-h6 css-1bv5yfe-MuiTypography-root"
         >
-          News
+          Codeflix
         </div>
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit css-plnrbk-MuiButtonBase-root-MuiButton-root"
