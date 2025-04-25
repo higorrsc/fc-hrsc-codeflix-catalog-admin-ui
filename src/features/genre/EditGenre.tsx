@@ -2,7 +2,8 @@ import { Box, Paper, Typography } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Genre } from 'src/types/Genre';
+import { Genre } from '../../types/Genre';
+import { mapGenreToForm } from '../../utils/Genre';
 import { GenreForm } from './components/GenreForm';
 import {
   initialState,
@@ -33,12 +34,7 @@ export const EditGenre = () => {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    await updateGenre({
-      id: genreState.id,
-      name: genreState.name,
-      is_active: genreState.is_active,
-      categories_id: genreState.categories?.map((category) => category.id),
-    });
+    await updateGenre(mapGenreToForm(genreState));
   }
 
   useEffect(() => {
