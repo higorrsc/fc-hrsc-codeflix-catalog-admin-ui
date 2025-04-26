@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { CssBaseline, Typography } from '@mui/material';
 import { Box, ThemeProvider } from '@mui/system';
 import { SnackbarProvider } from 'notistack';
 import { Route, Routes } from 'react-router-dom';
@@ -21,6 +21,7 @@ import { ListVideo } from './features/video/ListVideo';
 export default function App() {
   return (
     <ThemeProvider theme={appTheme}>
+      <CssBaseline />
       <SnackbarProvider
         maxSnack={3}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
