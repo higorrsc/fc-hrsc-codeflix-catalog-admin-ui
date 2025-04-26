@@ -1,3 +1,6 @@
+import { Results as CastMemberResults } from '../../types/CastMember';
+import { Results as CategoryResults } from '../../types/Category';
+import { Results as GenreResults } from '../../types/Genre';
 import {
   Result,
   Results,
@@ -31,17 +34,17 @@ export const initialState: Video = {
 
 const endpointUrl = '/videos';
 
-// function getAllCategories() {
-//   return `categories?all=true`;
-// }
+function getAllCategories() {
+  return `categories?all=true`;
+}
 
-// function getAllGenres() {
-//   return `genres?all=true`;
-// }
+function getAllGenres() {
+  return `genres?all=true`;
+}
 
-// function getAllCastMembers() {
-//   return `cast_members?all=true`;
-// }
+function getAllCastMembers() {
+  return `cast_members?all=true`;
+}
 
 // function createVideoMutation(data: VideoPayload) {
 //   return {
@@ -77,15 +80,15 @@ function updateVideo(data: VideoPayload) {
 
 export const videoApiSlice = apiSlice.injectEndpoints({
   endpoints: ({ query, mutation }) => ({
-    // getAllCategories: query<CategoriesResults, void>({
-    //   query: getAllCategories,
-    // }),
-    // getAllCastMembers: query<CastMemberResults, void>({
-    //   query: getAllCastMembers,
-    // }),
-    // getAllGenres: query<GenreResults, void>({
-    //   query: getAllGenres,
-    // }),
+    getAllCategories: query<CategoryResults, void>({
+      query: getAllCategories,
+    }),
+    getAllCastMembers: query<CastMemberResults, void>({
+      query: getAllCastMembers,
+    }),
+    getAllGenres: query<GenreResults, void>({
+      query: getAllGenres,
+    }),
     // createVideo: mutation<Video, VideoPayload>({
     //   query: createVideoMutation,
     //   invalidatesTags: ['Videos'],
@@ -111,7 +114,11 @@ export const videoApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useDeleteVideoMutation,
+  useGetAllCastMembersQuery,
+  useGetAllCategoriesQuery,
+  useGetAllGenresQuery,
   useGetVideoByIdQuery,
   useGetVideosQuery,
   useUpdateVideoMutation,
+  // useCreateVideoMutation,
 } = videoApiSlice;

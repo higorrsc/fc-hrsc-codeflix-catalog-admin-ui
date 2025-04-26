@@ -8,6 +8,9 @@ import { mapVideoToForm } from '../../utils/Video';
 import { VideoForm } from './components/VideoForm';
 import {
   initialState,
+  useGetAllCastMembersQuery,
+  useGetAllCategoriesQuery,
+  useGetAllGenresQuery,
   useGetVideoByIdQuery,
   useUpdateVideoMutation,
 } from './videoSlice';
@@ -18,7 +21,9 @@ export const EditVideo = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [videoState, setVideoState] = useState<Video>(initialState);
   const [updateVideo, status] = useUpdateVideoMutation();
-  // const { data: categories } = useGetAllCategoriesQuery();
+  const { data: categories } = useGetAllCategoriesQuery();
+  const { data: genres } = useGetAllGenresQuery();
+  const { data: castMembers } = useGetAllCastMembersQuery();
   const { data: video, isFetching } = useGetVideoByIdQuery({ id });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,6 +56,9 @@ export const EditVideo = () => {
     <Page title='Edit Video'>
       <VideoForm
         video={videoState}
+        categories={categories?.data}
+        genres={genres?.data}
+        castMembers={castMembers?.data}
         isDisabled={isDisabled}
         isLoading={isFetching}
         handleChange={handleChange}
