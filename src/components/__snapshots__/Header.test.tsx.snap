@@ -40,6 +40,13 @@ exports[`Test Header should render correctly 1`] = `
           tabindex="0"
           type="button"
         >
+          Toggle Theme
+        </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit css-plnrbk-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
           Login
         </button>
       </div>
