@@ -1,16 +1,57 @@
+import { useSnackbar } from 'notistack';
+import { useEffect, useState } from 'react';
+import { Video } from 'src/types/Video';
+import { mapVideoToForm } from 'src/utils/Video';
 import { Page } from '../../components/Page';
 import { VideoForm } from './components/VideoForm';
-import { initialState } from './videoSlice';
+import {
+  initialState,
+  useCreateVideoMutation,
+  useGetAllCastMembersQuery,
+  useGetAllCategoriesQuery,
+  useGetAllGenresQuery,
+} from './videoSlice';
 
 export const CreateVideo = () => {
+  const { enqueueSnackbar } = useSnackbar();
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [videoState, setVideoState] = useState<Video>(initialState);
+  const { data: categories } = useGetAllCategoriesQuery();
+  const { data: genres } = useGetAllGenresQuery();
+  const { data: castMembers } = useGetAllCastMembersQuery();
+  const [createVideo, status] = useCreateVideoMutation();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setVideoState({ ...videoState, [name]: value });
+  };
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    await createVideo(mapVideoToForm(videoState));
+  }
+
+  useEffect(() => {
+    if (status.isSuccess) {
+      enqueueSnackbar('Video created successfully!', { variant: 'success' });
+      setIsDisabled(true);
+    }
+    if (status.error) {
+      enqueueSnackbar('Error creating video!', { variant: 'error' });
+    }
+  }, [status, enqueueSnackbar]);
+
   return (
     <Page title='Create Video'>
       <VideoForm
-        video={initialState}
-        isLoading={false}
-        isDisabled={true}
-        handleChange={() => {}}
-        handleSubmit={() => {}}
+        video={videoState}
+        categories={categories?.data}
+        genres={genres?.data}
+        castMembers={castMembers?.data}
+        isDisabled={isDisabled}
+        isLoading={status.isLoading}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
       />
     </Page>
   );
