@@ -40,3 +40,16 @@ export interface VideoParams {
   perPage?: number;
   search?: string;
 }
+
+export interface VideoPayload {
+  id: string;
+  title: string;
+  description: string;
+  year_launched: number;
+  opened: boolean;
+  rating: string;
+  duration: number;
+  genres_id?: string[];
+  categories_id?: string[];
+  cast_members_id?: string[];
+}
