@@ -4,15 +4,20 @@ import { useParams } from 'react-router-dom';
 import { Video } from '../../types/Video';
 
 import { Page } from '../../components/Page';
+import { mapVideoToForm } from '../../utils/Video';
 import { VideoForm } from './components/VideoForm';
-import { initialState, useGetVideoByIdQuery } from './videoSlice';
+import {
+  initialState,
+  useGetVideoByIdQuery,
+  useUpdateVideoMutation,
+} from './videoSlice';
 
 export const EditVideo = () => {
   const id = useParams<{ id: string }>().id as string;
   const { enqueueSnackbar } = useSnackbar();
   const [isDisabled, setIsDisabled] = useState(false);
   const [videoState, setVideoState] = useState<Video>(initialState);
-  // const [updateVideo, status] = useUpdateVideoMutation();
+  const [updateVideo, status] = useUpdateVideoMutation();
   // const { data: categories } = useGetAllCategoriesQuery();
   const { data: video, isFetching } = useGetVideoByIdQuery({ id });
 
@@ -23,8 +28,7 @@ export const EditVideo = () => {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    // await updateVideo(mapVideoToForm(videoState));
+    await updateVideo(mapVideoToForm(videoState));
   }
 
   useEffect(() => {
@@ -33,15 +37,15 @@ export const EditVideo = () => {
     }
   }, [video]);
 
-  // useEffect(() => {
-  //   if (status.isSuccess) {
-  //     enqueueSnackbar('Video updated successfully!', { variant: 'success' });
-  //     setIsDisabled(true);
-  //   }
-  //   if (status.error) {
-  //     enqueueSnackbar('Error updating video!', { variant: 'error' });
-  //   }
-  // }, [status, enqueueSnackbar]);
+  useEffect(() => {
+    if (status.isSuccess) {
+      enqueueSnackbar('Video updated successfully!', { variant: 'success' });
+      setIsDisabled(true);
+    }
+    if (status.error) {
+      enqueueSnackbar('Error updating video!', { variant: 'error' });
+    }
+  }, [status, enqueueSnackbar]);
 
   return (
     <Page title='Edit Video'>

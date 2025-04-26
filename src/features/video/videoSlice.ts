@@ -1,4 +1,10 @@
-import { Result, Results, Video, VideoParams } from '../../types/Video';
+import {
+  Result,
+  Results,
+  Video,
+  VideoParams,
+  VideoPayload,
+} from '../../types/Video';
 import { parseQueryParams } from '../../utils/queryParams';
 
 import { apiSlice } from '../api/apiSlice';
@@ -61,13 +67,13 @@ function deleteVideo({ id }: { id: string }) {
   };
 }
 
-// function updateVideo(data: VideoPayload) {
-//   return {
-//     url: `${endpointUrl}/${data.id}`,
-//     method: 'PUT',
-//     body: data,
-//   };
-// }
+function updateVideo(data: VideoPayload) {
+  return {
+    url: `${endpointUrl}/${data.id}`,
+    method: 'PUT',
+    body: data,
+  };
+}
 
 export const videoApiSlice = apiSlice.injectEndpoints({
   endpoints: ({ query, mutation }) => ({
@@ -96,10 +102,10 @@ export const videoApiSlice = apiSlice.injectEndpoints({
       query: getVideos,
       providesTags: ['Videos'],
     }),
-    // updateVideo: mutation<Video, VideoPayload>({
-    //   query: updateVideo,
-    //   invalidatesTags: ['Videos'],
-    // }),
+    updateVideo: mutation<Result, VideoPayload>({
+      query: updateVideo,
+      invalidatesTags: ['Videos'],
+    }),
   }),
 });
 
@@ -107,4 +113,5 @@ export const {
   useDeleteVideoMutation,
   useGetVideoByIdQuery,
   useGetVideosQuery,
+  useUpdateVideoMutation,
 } = videoApiSlice;
