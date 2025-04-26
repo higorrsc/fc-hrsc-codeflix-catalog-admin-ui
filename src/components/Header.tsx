@@ -6,7 +6,16 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-export function Header({ toggleTheme }: { toggleTheme: () => void }) {
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+
+export function Header({
+  theme,
+  toggleTheme,
+}: {
+  theme: string;
+  toggleTheme: () => void;
+}) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static'>
@@ -23,9 +32,9 @@ export function Header({ toggleTheme }: { toggleTheme: () => void }) {
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
             Codeflix
           </Typography>
-          <Button onClick={toggleTheme} color='inherit'>
-            Toggle Theme
-          </Button>
+          <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color='inherit'>
+            {theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
           <Button color='inherit'>Login</Button>
         </Toolbar>
       </AppBar>

@@ -1,7 +1,7 @@
 import { CssBaseline, Typography } from '@mui/material';
 import { Box, ThemeProvider } from '@mui/system';
 import { SnackbarProvider } from 'notistack';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Layout } from './components/Layout';
@@ -22,9 +22,17 @@ import { ListVideo } from './features/video/ListVideo';
 export default function App() {
   const [theme, setTheme] = useState(darkTheme);
   const toggleTheme = () => {
-    const currentTheme = theme.palette.mode;
-    setTheme(currentTheme === 'light' ? darkTheme : lightTheme);
+    const currentTheme = theme.palette.mode === 'dark' ? lightTheme : darkTheme;
+    setTheme(currentTheme);
+    localStorage.setItem('theme', currentTheme.palette.mode);
   };
+
+  useEffect(() => {
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      setTheme(currentTheme === 'dark' ? darkTheme : lightTheme);
+    }
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -35,7 +43,7 @@ export default function App() {
         autoHideDuration={2000}
       >
         <Box component='main'>
-          <Header toggleTheme={toggleTheme} />
+          <Header theme={theme.palette.mode} toggleTheme={toggleTheme} />
           <Layout>
             <Routes>
               <Route path='/' element={<ListCategory />} />
