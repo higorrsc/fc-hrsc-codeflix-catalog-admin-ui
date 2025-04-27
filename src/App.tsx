@@ -1,11 +1,9 @@
 import { CssBaseline, Typography } from '@mui/material';
 import { Box, ThemeProvider } from '@mui/system';
 import { SnackbarProvider } from 'notistack';
-import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Layout } from './components/Layout';
-import { darkTheme, lightTheme } from './config/theme';
 import { CreateCastMember } from './features/cast/CreateCastMember';
 import { EditCastMember } from './features/cast/EditCastMember';
 import { ListCastMember } from './features/cast/ListCastMember';
@@ -18,24 +16,13 @@ import { ListGenre } from './features/genre/ListGenre';
 import { CreateVideo } from './features/video/CreateVideo';
 import { EditVideo } from './features/video/EditVideo';
 import { ListVideo } from './features/video/ListVideo';
+import { useAppTheme } from './hooks/useAppTheme';
 
 export default function App() {
-  const [theme, setTheme] = useState(darkTheme);
-  const toggleTheme = () => {
-    const currentTheme = theme.palette.mode === 'dark' ? lightTheme : darkTheme;
-    setTheme(currentTheme);
-    localStorage.setItem('theme', currentTheme.palette.mode);
-  };
-
-  useEffect(() => {
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-      setTheme(currentTheme === 'dark' ? darkTheme : lightTheme);
-    }
-  }, []);
+  const [currentTheme, toggleCurrentTheme] = useAppTheme();
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={currentTheme}>
       <CssBaseline />
       <SnackbarProvider
         maxSnack={3}
@@ -43,7 +30,10 @@ export default function App() {
         autoHideDuration={2000}
       >
         <Box component='main'>
-          <Header theme={theme.palette.mode} toggleTheme={toggleTheme} />
+          <Header
+            theme={currentTheme.palette.mode}
+            toggleTheme={toggleCurrentTheme}
+          />
           <Layout>
             <Routes>
               <Route path='/' element={<ListCategory />} />
