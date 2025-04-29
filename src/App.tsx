@@ -10,6 +10,7 @@ import { ListCategory } from './features/category/ListCategory';
 import { CreateGenre } from './features/genre/CreateGenre';
 import { EditGenre } from './features/genre/EditGenre';
 import { ListGenre } from './features/genre/ListGenre';
+import { UploadList } from './features/upload/UploadList';
 import { CreateVideo } from './features/video/CreateVideo';
 import { EditVideo } from './features/video/EditVideo';
 import { ListVideo } from './features/video/ListVideo';
@@ -17,6 +18,13 @@ import { ListVideo } from './features/video/ListVideo';
 export default function App() {
   return (
     <Layout>
+      <UploadList
+        uploads={[
+          { name: 'upload 1', progress: 10 },
+          { name: 'upload 2', progress: 20 },
+          { name: 'upload 3', progress: 30 },
+        ]}
+      />
       <Routes>
         <Route path='/' element={<ListCategory />} />
         {/* Categories */}
