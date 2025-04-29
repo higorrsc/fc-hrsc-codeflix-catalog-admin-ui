@@ -1,14 +1,14 @@
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
-import { Video } from 'src/types/Video';
-import { mapVideoToForm } from 'src/utils/Video';
+import { useUniqueCategories } from 'src/hooks/useUniqueCategories';
 import { Page } from '../../components/Page';
+import { Video } from '../../types/Video';
+import { mapVideoToForm } from '../../utils/Video';
 import { VideoForm } from './components/VideoForm';
 import {
   initialState,
   useCreateVideoMutation,
   useGetAllCastMembersQuery,
-  useGetAllCategoriesQuery,
   useGetAllGenresQuery,
 } from './videoSlice';
 
@@ -16,10 +16,11 @@ export const CreateVideo = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [isDisabled, setIsDisabled] = useState(false);
   const [videoState, setVideoState] = useState<Video>(initialState);
-  const { data: categories } = useGetAllCategoriesQuery();
+  // const { data: categories } = useGetAllCategoriesQuery();
   const { data: genres } = useGetAllGenresQuery();
   const { data: castMembers } = useGetAllCastMembersQuery();
   const [createVideo, status] = useCreateVideoMutation();
+  const [categories] = useUniqueCategories(videoState, setVideoState);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -45,7 +46,7 @@ export const CreateVideo = () => {
     <Page title='Create Video'>
       <VideoForm
         video={videoState}
-        categories={categories?.data}
+        categories={categories}
         genres={genres?.data}
         castMembers={castMembers?.data}
         isDisabled={isDisabled}

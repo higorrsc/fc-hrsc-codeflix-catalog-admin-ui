@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Video } from '../../types/Video';
 
+import { useUniqueCategories } from 'src/hooks/useUniqueCategories';
 import { Page } from '../../components/Page';
 import { mapVideoToForm } from '../../utils/Video';
 import { VideoForm } from './components/VideoForm';
 import {
   initialState,
   useGetAllCastMembersQuery,
-  useGetAllCategoriesQuery,
   useGetAllGenresQuery,
   useGetVideoByIdQuery,
   useUpdateVideoMutation,
@@ -21,7 +21,10 @@ export const EditVideo = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [videoState, setVideoState] = useState<Video>(initialState);
   const [updateVideo, status] = useUpdateVideoMutation();
-  const { data: categories } = useGetAllCategoriesQuery();
+  const [categories, setCategories] = useUniqueCategories(
+    videoState,
+    setVideoState
+  );
   const { data: genres } = useGetAllGenresQuery();
   const { data: castMembers } = useGetAllCastMembersQuery();
   const { data: video, isFetching } = useGetVideoByIdQuery({ id });
@@ -39,8 +42,9 @@ export const EditVideo = () => {
   useEffect(() => {
     if (video) {
       setVideoState(video.data);
+      setCategories(video.data.categories || []);
     }
-  }, [video]);
+  }, [video, setCategories]);
 
   useEffect(() => {
     if (status.isSuccess) {
@@ -56,7 +60,7 @@ export const EditVideo = () => {
     <Page title='Edit Video'>
       <VideoForm
         video={videoState}
-        categories={categories?.data}
+        categories={categories}
         genres={genres?.data}
         castMembers={castMembers?.data}
         isDisabled={isDisabled}
