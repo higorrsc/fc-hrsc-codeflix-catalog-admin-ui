@@ -4,7 +4,7 @@ import { Header } from './Header';
 describe('Test Header', () => {
   it('should render correctly', () => {
     const { asFragment } = render(
-      <Header theme={'dark'} toggleTheme={() => {}} />
+      <Header theme={'dark'} toggleTheme={() => {}} onDrawerToggle={() => {}} />
     );
     expect(asFragment()).toMatchSnapshot();
   });

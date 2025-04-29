@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { Page } from './Page';
 
-describe('Test Layout', () => {
+describe('Test Page', () => {
   it('should render correctly', () => {
     const { asFragment } = render(
       <Page title='Test'>

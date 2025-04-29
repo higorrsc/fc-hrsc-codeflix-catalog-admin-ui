@@ -12,9 +12,11 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 export function Header({
   theme,
   toggleTheme,
+  onDrawerToggle,
 }: {
   theme: string;
   toggleTheme: () => void;
+  onDrawerToggle: () => void;
 }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -26,6 +28,7 @@ export function Header({
             color='inherit'
             aria-label='menu'
             sx={{ mr: 2 }}
+            onClick={onDrawerToggle}
           >
             <MenuIcon />
           </IconButton>
