@@ -8,6 +8,7 @@ import {
   ListItem,
   Typography,
 } from '@mui/material';
+import { LinearWithValueLabel } from 'src/components/Progress';
 
 type Upload = {
   name: string;
@@ -42,9 +43,12 @@ export const UploadList: React.FC<Props> = ({ uploads }) => {
         <AccordionDetails>
           <List>
             {uploads.map((upload, index) => (
-              <ListItem key={index}>
+              <Box key={index}>
                 <Typography>{upload.name}</Typography>
-              </ListItem>
+                <ListItem>
+                  <LinearWithValueLabel />
+                </ListItem>
+              </Box>
             ))}
           </List>
         </AccordionDetails>
