@@ -1,5 +1,4 @@
 import { Results as CastMemberResults } from '../../types/CastMember';
-import { Results as CategoryResults } from '../../types/Category';
 import { Results as GenreResults } from '../../types/Genre';
 import {
   Result,
@@ -34,9 +33,9 @@ export const initialState: Video = {
 
 const endpointUrl = '/videos';
 
-function getAllCategories() {
-  return `categories?all=true`;
-}
+// function getAllCategories() {
+//   return `categories?all=true`;
+// }
 
 function getAllGenres() {
   return `genres?all=true`;
@@ -80,9 +79,9 @@ function updateVideo(data: VideoPayload) {
 
 export const videoApiSlice = apiSlice.injectEndpoints({
   endpoints: ({ query, mutation }) => ({
-    getAllCategories: query<CategoryResults, void>({
-      query: getAllCategories,
-    }),
+    // getAllCategories: query<CategoryResults, void>({
+    //   query: getAllCategories,
+    // }),
     getAllCastMembers: query<CastMemberResults, void>({
       query: getAllCastMembers,
     }),
@@ -116,7 +115,7 @@ export const {
   useCreateVideoMutation,
   useDeleteVideoMutation,
   useGetAllCastMembersQuery,
-  useGetAllCategoriesQuery,
+  // useGetAllCategoriesQuery,
   useGetAllGenresQuery,
   useGetVideoByIdQuery,
   useGetVideosQuery,

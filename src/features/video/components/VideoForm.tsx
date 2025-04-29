@@ -9,8 +9,9 @@ import {
 } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RatingList } from 'src/components/RatingList';
 import { AutoCompleteField } from '../../../components/AutoCompleteField';
+import { InputFile } from '../../../components/InputFile';
+import { RatingList } from '../../../components/RatingList';
 import { CastMember } from '../../../types/CastMember';
 import { Category } from '../../../types/Category';
 import { Genre } from '../../../types/Genre';
@@ -156,6 +157,11 @@ export function VideoForm({
                 >
                   <RatingList isDisabled={isDisabled} />
                 </RadioGroup>
+              </FormControl>
+
+              <FormControl fullWidth>
+                <FormLabel component='legend'>Imagem</FormLabel>
+                <InputFile onChange={() => {}} />
               </FormControl>
             </Grid>
           </Grid>
