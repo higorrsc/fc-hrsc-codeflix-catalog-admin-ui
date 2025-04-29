@@ -28,10 +28,21 @@ export const EditVideo = () => {
   const { data: genres } = useGetAllGenresQuery();
   const { data: castMembers } = useGetAllCastMembersQuery();
   const { data: video, isFetching } = useGetVideoByIdQuery({ id });
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setVideoState({ ...videoState, [name]: value });
+  };
+
+  const handleAddFile = (files: FileList | null) => {
+    if (!files) return;
+    const filesArr = Array.from(files);
+    setSelectedFiles([...selectedFiles, ...filesArr]);
+  };
+
+  const handleRemoveFile = (file: File) => {
+    setSelectedFiles(selectedFiles.filter((f) => f !== file));
   };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -67,6 +78,8 @@ export const EditVideo = () => {
         isLoading={isFetching}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
+        handleAddFile={handleAddFile}
+        handleRemoveFile={handleRemoveFile}
       />
     </Page>
   );

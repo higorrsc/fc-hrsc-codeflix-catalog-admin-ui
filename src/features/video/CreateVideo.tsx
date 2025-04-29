@@ -21,10 +21,21 @@ export const CreateVideo = () => {
   const { data: castMembers } = useGetAllCastMembersQuery();
   const [createVideo, status] = useCreateVideoMutation();
   const [categories] = useUniqueCategories(videoState, setVideoState);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setVideoState({ ...videoState, [name]: value });
+  };
+
+  const handleAddFile = (files: FileList | null) => {
+    if (!files) return;
+    const filesArr = Array.from(files);
+    setSelectedFiles([...selectedFiles, ...filesArr]);
+  };
+
+  const handleRemoveFile = (file: File) => {
+    setSelectedFiles(selectedFiles.filter((f) => f !== file));
   };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -53,6 +64,8 @@ export const CreateVideo = () => {
         isLoading={status.isLoading}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
+        handleAddFile={handleAddFile}
+        handleRemoveFile={handleRemoveFile}
       />
     </Page>
   );

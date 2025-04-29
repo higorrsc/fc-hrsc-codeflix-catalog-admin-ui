@@ -26,6 +26,8 @@ type Props = {
   isLoading?: boolean;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleAddFile: (files: FileList | null) => void;
+  handleRemoveFile: (file: File) => void;
 };
 
 export function VideoForm({
@@ -37,6 +39,8 @@ export function VideoForm({
   isLoading,
   handleChange,
   handleSubmit,
+  handleAddFile,
+  handleRemoveFile,
 }: Props) {
   return (
     <Box>
@@ -160,8 +164,15 @@ export function VideoForm({
               </FormControl>
 
               <FormControl fullWidth>
-                <FormLabel component='legend'>Imagem</FormLabel>
-                <InputFile onChange={() => {}} />
+                <FormLabel component='legend'>Thumb</FormLabel>
+                <InputFile onAdd={handleAddFile} onRemove={handleRemoveFile} />
+                <InputFile onAdd={handleAddFile} onRemove={handleRemoveFile} />
+              </FormControl>
+
+              <FormControl fullWidth>
+                <FormLabel component='legend'>Videos</FormLabel>
+                <InputFile onAdd={handleAddFile} onRemove={handleRemoveFile} />
+                <InputFile onAdd={handleAddFile} onRemove={handleRemoveFile} />
               </FormControl>
             </Grid>
           </Grid>
