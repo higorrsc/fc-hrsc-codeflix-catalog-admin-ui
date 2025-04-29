@@ -2,7 +2,7 @@ import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { useUniqueCategories } from 'src/hooks/useUniqueCategories';
 import { Page } from '../../components/Page';
-import { Video } from '../../types/Video';
+import { FileObject, Video } from '../../types/Video';
 import { mapVideoToForm } from '../../utils/Video';
 import { VideoForm } from './components/VideoForm';
 import {
@@ -21,21 +21,19 @@ export const CreateVideo = () => {
   const { data: castMembers } = useGetAllCastMembersQuery();
   const [createVideo, status] = useCreateVideoMutation();
   const [categories] = useUniqueCategories(videoState, setVideoState);
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [selectedFiles, setSelectedFiles] = useState<FileObject[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setVideoState({ ...videoState, [name]: value });
   };
 
-  const handleAddFile = (files: FileList | null) => {
-    if (!files) return;
-    const filesArr = Array.from(files);
-    setSelectedFiles([...selectedFiles, ...filesArr]);
+  const handleAddFile = ({ name, file }: FileObject) => {
+    setSelectedFiles([...selectedFiles, { name, file }]);
   };
 
-  const handleRemoveFile = (file: File) => {
-    setSelectedFiles(selectedFiles.filter((f) => f !== file));
+  const handleRemoveFile = (name: string) => {
+    setSelectedFiles(selectedFiles.filter((f) => f.name !== name));
   };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {

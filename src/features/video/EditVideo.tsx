@@ -1,7 +1,7 @@
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Video } from '../../types/Video';
+import { FileObject, Video } from '../../types/Video';
 
 import { useUniqueCategories } from 'src/hooks/useUniqueCategories';
 import { Page } from '../../components/Page';
@@ -28,21 +28,19 @@ export const EditVideo = () => {
   const { data: genres } = useGetAllGenresQuery();
   const { data: castMembers } = useGetAllCastMembersQuery();
   const { data: video, isFetching } = useGetVideoByIdQuery({ id });
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [selectedFiles, setSelectedFiles] = useState<FileObject[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setVideoState({ ...videoState, [name]: value });
   };
 
-  const handleAddFile = (files: FileList | null) => {
-    if (!files) return;
-    const filesArr = Array.from(files);
-    setSelectedFiles([...selectedFiles, ...filesArr]);
+  const handleAddFile = ({ name, file }: FileObject) => {
+    setSelectedFiles([...selectedFiles, { name, file }]);
   };
 
-  const handleRemoveFile = (file: File) => {
-    setSelectedFiles(selectedFiles.filter((f) => f !== file));
+  const handleRemoveFile = (name: string) => {
+    setSelectedFiles(selectedFiles.filter((f) => f.name !== name));
   };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
