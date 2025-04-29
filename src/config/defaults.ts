@@ -6,3 +6,5 @@ export const initialOptions: ListOptions = {
   rowsPerPage: [10, 25, 50, 100],
   search: '',
 };
+
+export const drawerWidth = 240;
