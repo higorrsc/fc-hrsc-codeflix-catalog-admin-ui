@@ -1,9 +1,15 @@
-// /home/higorrsc/devdisk/courses/fullcycle/v.3/codeflix-catalog-admin-ui/src/types/Video.test.ts
 import { Links, Meta } from './_shared'; // Import shared types
 import { CastMember, CastMemberType } from './CastMember'; // Import related types
 import { Category } from './Category';
 import { Genre } from './Genre';
-import { Result, Results, Video, VideoParams, VideoPayload } from './Video';
+import {
+  FileObject,
+  Result,
+  Results,
+  Video,
+  VideoParams,
+  VideoPayload,
+} from './Video';
 
 // --- Mock Data ---
 
@@ -383,6 +389,27 @@ describe('Types: Video', () => {
       expect(payloadEmptyArrays.genres_id).toEqual([]);
       expect(payloadEmptyArrays.categories_id).toEqual([]);
       expect(payloadEmptyArrays.cast_members_id).toEqual([]);
+    });
+  });
+
+  // Test the FileObject interface
+  describe('FileObject Interface', () => {
+    it('should allow creation of objects conforming to FileObject', () => {
+      // Mock a File object (in a testing environment like Jest/Vitest,
+      // you might need specific setup or use a library for full File mocking)
+      const mockFile = new File(['dummy content'], 'video.mp4', {
+        type: 'video/mp4',
+      });
+
+      const fileObject: FileObject = {
+        name: 'Main Video',
+        file: mockFile,
+      };
+
+      expect(fileObject.name).toBe('Main Video');
+      expect(typeof fileObject.name).toBe('string');
+      expect(fileObject.file).toBeInstanceOf(File);
+      expect(fileObject.file.name).toBe('video.mp4');
     });
   });
 });

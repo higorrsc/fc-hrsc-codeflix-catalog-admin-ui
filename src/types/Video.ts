@@ -53,3 +53,8 @@ export interface VideoPayload {
   categories_id?: string[];
   cast_members_id?: string[];
 }
+
+export interface FileObject {
+  name: string;
+  file: File;
+}
