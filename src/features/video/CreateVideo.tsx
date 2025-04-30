@@ -1,5 +1,6 @@
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
+import { useAppDispatch } from 'src/app/hooks';
 import { useUniqueCategories } from 'src/hooks/useUniqueCategories';
 import { Page } from '../../components/Page';
 import { FileObject, Video } from '../../types/Video';
@@ -23,6 +24,8 @@ export const CreateVideo = () => {
   const [categories] = useUniqueCategories(videoState, setVideoState);
   const [selectedFiles, setSelectedFiles] = useState<FileObject[]>([]);
 
+  const dispatch = useAppDispatch();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setVideoState({ ...videoState, [name]: value });
@@ -38,7 +41,12 @@ export const CreateVideo = () => {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    await createVideo(mapVideoToForm(videoState));
+    const { id, ...payload } = mapVideoToForm(videoState);
+    try {
+      await createVideo(payload).unwrap();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {

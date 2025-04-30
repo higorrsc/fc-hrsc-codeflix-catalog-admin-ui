@@ -42,7 +42,7 @@ export interface VideoParams {
 }
 
 export interface VideoPayload {
-  id: string;
+  id?: string;
   title: string;
   description: string;
   year_launched: number;
