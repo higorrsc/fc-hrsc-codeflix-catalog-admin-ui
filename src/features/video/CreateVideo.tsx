@@ -1,10 +1,12 @@
+import { nanoid } from '@reduxjs/toolkit';
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
-import { useAppDispatch } from 'src/app/hooks';
-import { useUniqueCategories } from 'src/hooks/useUniqueCategories';
+import { useAppDispatch } from '../../app/hooks';
 import { Page } from '../../components/Page';
+import { useUniqueCategories } from '../../hooks/useUniqueCategories';
 import { FileObject, Video } from '../../types/Video';
 import { mapVideoToForm } from '../../utils/Video';
+import { addUpload } from '../upload/uploadSlice';
 import { VideoForm } from './components/VideoForm';
 import {
   initialState,
@@ -39,11 +41,19 @@ export const CreateVideo = () => {
     setSelectedFiles(selectedFiles.filter((f) => f.name !== name));
   };
 
+  const handleSubmitUploads = (videoId: string) => {
+    selectedFiles.forEach(({ file, name }) => {
+      const payload = { id: nanoid(), file, videoId, field: name };
+      dispatch(addUpload(payload));
+    });
+  };
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const { id, ...payload } = mapVideoToForm(videoState);
     try {
-      await createVideo(payload).unwrap();
+      const { data } = await createVideo(payload).unwrap();
+      handleSubmitUploads(data.id);
     } catch (error) {
       console.log(error);
     }
