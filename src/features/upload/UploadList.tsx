@@ -8,7 +8,9 @@ import {
   ListItem,
   Typography,
 } from '@mui/material';
-import { LinearWithValueLabel } from 'src/components/Progress';
+import { useAppSelector } from '../../app/hooks';
+import { LinearProgressWithLabel } from '../../components/Progress';
+import { selectUploads } from './uploadSlice';
 
 type Upload = {
   name: string;
@@ -19,8 +21,10 @@ type Props = {
   uploads?: Upload[];
 };
 
-export const UploadList: React.FC<Props> = ({ uploads }) => {
-  if (!uploads) {
+export const UploadList: React.FC<Props> = () => {
+  const uploadList = useAppSelector(selectUploads);
+
+  if (!uploadList) {
     return null;
   }
 
@@ -42,11 +46,11 @@ export const UploadList: React.FC<Props> = ({ uploads }) => {
         </AccordionSummary>
         <AccordionDetails>
           <List>
-            {uploads.map((upload, index) => (
+            {uploadList.map((upload, index) => (
               <Box key={index}>
-                <Typography>{upload.name}</Typography>
+                <Typography>{upload.field}</Typography>
                 <ListItem>
-                  <LinearWithValueLabel />
+                  <LinearProgressWithLabel value={upload.progress} />
                 </ListItem>
               </Box>
             ))}
