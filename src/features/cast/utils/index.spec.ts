@@ -1,5 +1,5 @@
-import { CastMemberType } from '../types/CastMember';
-import { getCastMemberTypeOptions } from './CastMember';
+import { getCastMemberTypeOptions } from '.';
+import { CastMemberType } from '../types';
 
 describe('Utils: CastMember', () => {
   describe('getCastMemberTypeOptions', () => {

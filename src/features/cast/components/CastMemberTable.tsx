@@ -10,8 +10,8 @@ import {
   GridToolbar,
 } from '@mui/x-data-grid';
 import { Link } from 'react-router-dom';
-import { Results } from '../../../types/CastMember';
-import { getCastMemberTypeOptions } from '../../../utils/CastMember';
+import { Results } from '../types';
+import { getCastMemberTypeOptions } from '../utils';
 
 type Props = {
   data: Results | undefined;

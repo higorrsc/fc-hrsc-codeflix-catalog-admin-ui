@@ -1,13 +1,7 @@
-import { Results as CategoriesResults } from '../../types/Category';
-import {
-  Genre,
-  GenreParams,
-  GenrePayload,
-  Result,
-  Results,
-} from '../../types/Genre';
 import { parseQueryParams } from '../../utils/queryParams';
 import { apiSlice } from '../api/apiSlice';
+import { Results as CategoriesResults } from '../category/types';
+import { Genre, GenreParams, GenrePayload, Result, Results } from './types';
 
 export const initialState: Genre = {
   id: '',

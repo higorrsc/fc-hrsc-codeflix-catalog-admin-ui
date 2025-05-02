@@ -1,11 +1,6 @@
-import {
-  Category,
-  CategoryParams,
-  Result,
-  Results,
-} from '../../types/Category';
 import { parseQueryParams } from '../../utils/queryParams';
 import { apiSlice } from '../api/apiSlice';
+import { Category, CategoryParams, Result, Results } from './types';
 
 export const initialState: Category = {
   id: '',

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
-import { UploadProgress, UploadState } from '../../types/Upload';
+import { UploadProgress, UploadState } from './types';
 import { updateVideo } from './uploadThunk';
 
 const initialState: UploadState[] = [];

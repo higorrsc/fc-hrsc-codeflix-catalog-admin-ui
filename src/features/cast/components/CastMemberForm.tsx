@@ -12,8 +12,8 @@ import {
 } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CastMember } from '../../../types/CastMember';
-import { getCastMemberTypeOptions } from '../../../utils/CastMember';
+import { CastMember } from '../types';
+import { getCastMemberTypeOptions } from '../utils';
 
 export type Props = {
   castMember: CastMember;

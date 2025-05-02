@@ -1,4 +1,4 @@
-import { Links, Meta } from './_shared';
+import { Links, Meta } from '../../../types/_shared';
 
 export enum CastMemberType {
   ACTOR = 1,

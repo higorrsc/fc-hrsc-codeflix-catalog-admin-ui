@@ -1,4 +1,4 @@
-import { UploadProgress, UploadState } from './Upload';
+import { UploadProgress, UploadState } from '.';
 
 // Mock File object for testing purposes
 const createMockFile = (name: string, size: number, type: string): File => {

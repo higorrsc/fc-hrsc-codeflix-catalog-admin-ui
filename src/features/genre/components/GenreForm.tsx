@@ -10,8 +10,8 @@ import {
   TextField,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { Category } from '../../../types/Category';
-import { Genre } from '../../../types/Genre';
+import { Category } from '../../category/types';
+import { Genre } from '../types';
 
 type Props = {
   genre: Genre;

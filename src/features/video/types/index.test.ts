@@ -1,7 +1,3 @@
-import { Links, Meta } from './_shared'; // Import shared types
-import { CastMember, CastMemberType } from './CastMember'; // Import related types
-import { Category } from './Category';
-import { Genre } from './Genre';
 import {
   FileObject,
   Result,
@@ -9,7 +5,11 @@ import {
   Video,
   VideoParams,
   VideoPayload,
-} from './Video';
+} from '.';
+import { Links, Meta } from '../../../types/_shared'; // Import shared types
+import { CastMember, CastMemberType } from '../../cast/types'; // Import related types
+import { Category } from '../../category/types';
+import { Genre } from '../../genre/types';
 
 // --- Mock Data ---
 

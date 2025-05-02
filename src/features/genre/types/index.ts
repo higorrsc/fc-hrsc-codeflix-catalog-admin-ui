@@ -1,5 +1,5 @@
-import { Links, Meta } from './_shared';
-import { Category } from './Category';
+import { Links, Meta } from '../../../types/_shared';
+import { Category } from '../../category/types';
 
 export interface Results {
   data: Genre[];

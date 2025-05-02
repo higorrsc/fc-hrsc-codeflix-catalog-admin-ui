@@ -1,9 +1,9 @@
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { Page } from '../../components/Page';
-import { CastMember } from '../../types/CastMember';
 import { initialState, useCreateCastMemberMutation } from './castMemberSlice';
 import { CastMemberForm } from './components/CastMemberForm';
+import { CastMember } from './types';
 
 export const CreateCastMember = () => {
   const [createCastMember, status] = useCreateCastMemberMutation();

@@ -1,14 +1,14 @@
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { Page } from '../../components/Page';
-import { Genre } from '../../types/Genre';
-import { mapGenreToForm } from '../../utils/Genre';
 import { GenreForm } from './components/GenreForm';
 import {
   initialState,
   useCreateGenreMutation,
   useGetAllCategoriesQuery,
 } from './genreSlice';
+import { Genre } from './types';
+import { mapGenreToForm } from './utils';
 
 export const CreateGenre = () => {
   const { enqueueSnackbar } = useSnackbar();

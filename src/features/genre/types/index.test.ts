@@ -1,13 +1,6 @@
-import { Links, Meta } from './_shared'; // Import shared types
-import { Category } from './Category'; // Import Category type
-import {
-  Genre,
-  GenreParams,
-  GenrePayload,
-  Pivot,
-  Result,
-  Results,
-} from './Genre';
+import { Genre, GenreParams, GenrePayload, Pivot, Result, Results } from '.';
+import { Links, Meta } from '../../../types/_shared'; // Import shared types
+import { Category } from '../../category/types'; // Import Category type
 
 // Mock data conforming to the shared interfaces
 const mockLinks: Links = {

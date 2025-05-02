@@ -2,13 +2,13 @@ import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Page } from '../../components/Page';
-import { CastMember } from '../../types/CastMember';
 import {
   initialState,
   useGetCastMemberByIdQuery,
   useUpdateCastMemberMutation,
 } from './castMemberSlice';
 import { CastMemberForm } from './components/CastMemberForm';
+import { CastMember } from './types';
 
 export const EditCastMember = () => {
   const id = useParams().id || '';

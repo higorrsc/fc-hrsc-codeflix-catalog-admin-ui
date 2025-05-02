@@ -2,8 +2,6 @@ import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Page } from '../../components/Page';
-import { Genre } from '../../types/Genre';
-import { mapGenreToForm } from '../../utils/Genre';
 import { GenreForm } from './components/GenreForm';
 import {
   initialState,
@@ -11,6 +9,8 @@ import {
   useGetGenreByIdQuery,
   useUpdateGenreMutation,
 } from './genreSlice';
+import { Genre } from './types';
+import { mapGenreToForm } from './utils';
 
 export const EditGenre = () => {
   const id = useParams<{ id: string }>().id as string;

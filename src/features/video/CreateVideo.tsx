@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../app/hooks';
 import { Page } from '../../components/Page';
 import { useUniqueCategories } from '../../hooks/useUniqueCategories';
-import { FileObject, Video } from '../../types/Video';
-import { mapVideoToForm } from '../../utils/Video';
 import { addUpload } from '../upload/uploadSlice';
 import { VideoForm } from './components/VideoForm';
+import { FileObject, Video } from './types';
+import { mapVideoToForm } from './utils';
 import {
   initialState,
   useCreateVideoMutation,

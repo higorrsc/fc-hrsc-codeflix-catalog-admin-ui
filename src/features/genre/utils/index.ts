@@ -1,5 +1,5 @@
-import { Category } from '../types/Category';
-import { Genre } from '../types/Genre';
+import { Category } from '../../category/types';
+import { Genre } from '../types';
 
 export const mapGenreToForm = (genre: Genre) => {
   return {

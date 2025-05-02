@@ -10,7 +10,7 @@ import {
   GridToolbar,
 } from '@mui/x-data-grid';
 import { Link } from 'react-router-dom';
-import { Results } from '../../../types/Genre';
+import { Results } from '../types';
 
 type Props = {
   data: Results | undefined;

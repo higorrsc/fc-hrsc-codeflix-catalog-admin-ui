@@ -2,7 +2,7 @@ import { GridFilterModel } from '@mui/x-data-grid';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { CastMemberType } from '../../../types/CastMember';
+import { CastMemberType } from '../types';
 import { CastMemberTable } from './CastMemberTable';
 
 const Props = {

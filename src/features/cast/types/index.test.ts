@@ -4,8 +4,8 @@ import {
   CastMemberType,
   Result,
   Results,
-} from './CastMember';
-import { Links, Meta } from './_shared'; // Import shared types
+} from '.';
+import { Links, Meta } from '../../../types/_shared'; // Import shared types
 
 // Mock data conforming to the shared interfaces
 const mockLinks: Links = {

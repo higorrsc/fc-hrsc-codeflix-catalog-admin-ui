@@ -3,9 +3,9 @@ import {
   AutocompleteRenderInputParams,
   TextField,
 } from '@mui/material';
-import { CastMember } from '../types/CastMember';
-import { Category } from '../types/Category';
-import { Genre } from '../types/Genre';
+import { CastMember } from '../features/cast/types';
+import { Category } from '../features/category/types';
+import { Genre } from '../features/genre/types';
 
 type Props = {
   name: string;

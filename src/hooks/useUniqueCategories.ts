@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
-import { Category } from '../types/Category';
-import { Video } from '../types/Video';
+import { Category } from '../features/category/types';
+import { Video } from '../features/video/types';
 
 type UseUniqueCategoriesHook = (
   videoState: Video,

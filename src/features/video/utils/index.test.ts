@@ -1,9 +1,9 @@
 // /home/higorrsc/devdisk/courses/fullcycle/v.3/codeflix-catalog-admin-ui/src/utils/Video.test.ts
-import { CastMember, CastMemberType } from '../types/CastMember';
-import { Category } from '../types/Category';
-import { Genre } from '../types/Genre';
-import { Video, VideoPayload } from '../types/Video';
-import { mapVideoToForm } from './Video'; // Import the function to test
+import { mapVideoToForm } from '.'; // Import the function to test
+import { CastMember, CastMemberType } from '../../cast/types';
+import { Category } from '../../category/types';
+import { Genre } from '../../genre/types';
+import { Video, VideoPayload } from '../types';
 
 // --- Mock Data ---
 

@@ -2,13 +2,13 @@ import { useSnackbar } from 'notistack';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Page } from '../../components/Page';
-import { Category } from '../../types/Category';
 import {
   initialState,
   useGetCategoryByIdQuery,
   useUpdateCategoryMutation,
 } from './categorySlice';
 import { CategoryForm } from './components/CategoryForm';
+import { Category } from './types';
 
 export const EditCategory = () => {
   const id = useParams().id || '';

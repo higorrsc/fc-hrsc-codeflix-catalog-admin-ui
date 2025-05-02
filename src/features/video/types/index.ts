@@ -1,7 +1,7 @@
-import { Links, Meta } from './_shared';
-import { CastMember } from './CastMember';
-import { Category } from './Category';
-import { Genre } from './Genre';
+import { Links, Meta } from '../../../types/_shared';
+import { CastMember } from '../../cast/types';
+import { Category } from '../../category/types';
+import { Genre } from '../../genre/types';
 
 export interface Results {
   data: Video[];

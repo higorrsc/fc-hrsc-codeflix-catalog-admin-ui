@@ -12,10 +12,10 @@ import { Link } from 'react-router-dom';
 import { AutoCompleteField } from '../../../components/AutoCompleteField';
 import { InputFile } from '../../../components/InputFile';
 import { RatingList } from '../../../components/RatingList';
-import { CastMember } from '../../../types/CastMember';
-import { Category } from '../../../types/Category';
-import { Genre } from '../../../types/Genre';
-import { FileObject, Video } from '../../../types/Video';
+import { CastMember } from '../../cast/types';
+import { Category } from '../../category/types';
+import { Genre } from '../../genre/types';
+import { FileObject, Video } from '../types';
 
 type Props = {
   video: Video;

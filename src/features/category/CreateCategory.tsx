@@ -1,9 +1,9 @@
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { Page } from '../../components/Page';
-import { Category } from '../../types/Category';
 import { initialState, useCreateCategoryMutation } from './categorySlice';
 import { CategoryForm } from './components/CategoryForm';
+import { Category } from './types';
 
 export const CreateCategory = () => {
   const [createCategory, status] = useCreateCategoryMutation();

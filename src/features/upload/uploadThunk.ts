@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosProgressEvent } from 'axios';
-import { UploadState } from '../../types/Upload';
+import { UploadState } from './types';
 import { uploadProgress, uploadService } from './uploadAPI';
 import { setUploadProgress } from './uploadSlice';
 

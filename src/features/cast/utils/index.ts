@@ -1,4 +1,4 @@
-import { CastMemberType } from '../types/CastMember';
+import { CastMemberType } from '../types';
 
 export function getCastMemberTypeOptions() {
   return Object.values(CastMemberType)

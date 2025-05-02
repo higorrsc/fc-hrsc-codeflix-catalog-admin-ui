@@ -1,11 +1,6 @@
-import {
-  CastMember,
-  CastMemberParams,
-  Result,
-  Results,
-} from '../../types/CastMember';
 import { parseQueryParams } from '../../utils/queryParams';
 import { apiSlice } from '../api/apiSlice';
+import { CastMember, CastMemberParams, Result, Results } from './types';
 
 const endpointUrl = '/cast_members';
 

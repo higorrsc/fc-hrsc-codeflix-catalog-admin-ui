@@ -1,12 +1,12 @@
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { FileObject, Video } from '../../types/Video';
+import { FileObject, Video } from './types';
 
 import { useUniqueCategories } from 'src/hooks/useUniqueCategories';
 import { Page } from '../../components/Page';
-import { mapVideoToForm } from '../../utils/Video';
 import { VideoForm } from './components/VideoForm';
+import { mapVideoToForm } from './utils';
 import {
   initialState,
   useGetAllCastMembersQuery,

@@ -1,13 +1,7 @@
-import { Results as CastMemberResults } from '../../types/CastMember';
-import { Results as GenreResults } from '../../types/Genre';
-import {
-  Result,
-  Results,
-  Video,
-  VideoParams,
-  VideoPayload,
-} from '../../types/Video';
 import { parseQueryParams } from '../../utils/queryParams';
+import { Results as CastMemberResults } from '../cast/types';
+import { Results as GenreResults } from '../genre/types';
+import { Result, Results, Video, VideoParams, VideoPayload } from './types';
 
 import { apiSlice } from '../api/apiSlice';
 

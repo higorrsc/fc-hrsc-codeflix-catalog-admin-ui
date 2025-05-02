@@ -1,8 +1,8 @@
 // src/utils/__tests__/Genre.spec.ts (or src/utils/Genre.spec.ts)
 
-import { Category } from '../types/Category'; // Adjust the path if needed
-import { Genre } from '../types/Genre'; // Adjust the path if needed
-import { mapGenreToForm } from './Genre'; // Adjust the path if needed
+import { mapGenreToForm } from '.'; // Adjust the path if needed
+import { Category } from '../../category/types'; // Adjust the path if needed
+import { Genre } from '../types'; // Adjust the path if needed
 
 // Mock Data Setup
 const mockCategory1: Category = {

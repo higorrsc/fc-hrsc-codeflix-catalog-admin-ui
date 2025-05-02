@@ -1,4 +1,4 @@
-import { Video, VideoPayload } from 'src/types/Video';
+import { Video, VideoPayload } from 'src/features/video/types';
 
 export const mapVideoToForm = (video: Video): VideoPayload => {
   return {

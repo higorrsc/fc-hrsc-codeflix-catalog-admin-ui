@@ -1,4 +1,4 @@
-import { Links, Meta } from './_shared';
+import { Links, Meta } from '../../../types/_shared';
 
 // Since _shared.ts only contains TypeScript interfaces,
 // there's no runtime logic to test directly with unit tests.
