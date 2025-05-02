@@ -19,7 +19,7 @@ export const EditGenre = () => {
   const [genreState, setGenreState] = useState<Genre>(initialState);
   const [updateGenre, status] = useUpdateGenreMutation();
   const { data: categories } = useGetAllCategoriesQuery();
-  const { data: genre, isFetching } = useGetGenreByIdQuery({ id });
+  const { data: genre } = useGetGenreByIdQuery({ id });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
