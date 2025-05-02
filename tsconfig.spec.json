@@ -1,0 +1,16 @@
+{
+  // Inherit all settings from your main tsconfig
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // Override moduleResolution for tests running in Node
+    // Use 'node16' or 'nodenext' depending on your Node version and project setup
+    "moduleResolution": "node" // Or "nodenext"
+    // You might potentially need other test-specific overrides here
+  },
+  // Include your test files, and potentially necessary source files if not covered by extends
+  "include": [
+    "src/**/*.spec.ts?(x)",
+    "src/**/*.test.ts?(x)",
+    "tests/**/*.ts?(x)"
+  ] // Adjust patterns as needed
+}

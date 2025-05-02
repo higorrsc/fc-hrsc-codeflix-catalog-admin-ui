@@ -13,7 +13,18 @@ const config: Config = {
   testEnvironment: 'jest-fixed-jsdom',
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
-  transform: { '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest' },
+  transform: {
+    // Use an array to pass options to ts-jest:
+    // '^.+\\.[tj]sx?$' to process js/ts/jsx/tsx files with ts-jest
+    '^.+\\.[tj]sx?$': [
+      'ts-jest',
+      {
+        tsconfig: './tsconfig.spec.json', // Point to your test-specific tsconfig
+      },
+    ],
+  },
+  // By default, node_modules are ignored by transforms. Explicitly tell Jest NOT to ignore keycloak-js.
+  transformIgnorePatterns: ['/node_modules/(?!keycloak-js)/'],
   collectCoverage: true,
   coverageReporters: ['html'],
 };
