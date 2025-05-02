@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw';
 import { castMemberResponse, castMemberResponsePage2 } from '.';
-import { baseUrl } from '../../api/apiSlice';
+import { baseUrl } from '../../../config/defaults';
 
 export const handlers = [
   http.get(`${baseUrl}/cast_members`, ({ request, params, cookies }) => {

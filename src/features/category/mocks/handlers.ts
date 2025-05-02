@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw';
 import { categoryResponse, categoryResponsePage2 } from '.';
-import { baseUrl } from '../../api/apiSlice';
+import { baseUrl } from '../../../config/defaults';
 
 export const handlers = [
   http.get(`${baseUrl}/categories`, ({ request, params, cookies }) => {
