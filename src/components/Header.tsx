@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { keycloak } from '../keycloakConfig';
 
 export function Header({
   theme,
@@ -38,7 +39,9 @@ export function Header({
           <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color='inherit'>
             {theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>
-          <Button color='inherit'>Login</Button>
+          <Button color='inherit' onClick={() => keycloak.logout()}>
+            Logout
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
