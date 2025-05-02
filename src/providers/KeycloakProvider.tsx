@@ -24,10 +24,12 @@ export const KeycloakProvider = ({
               dispatch(setToken(keycloak.token));
             } else {
               dispatch(setAuthenticated(false));
+              dispatch(setToken(''));
             }
           })
           .catch(() => {
             dispatch(setAuthenticated(false));
+            dispatch(setToken(''));
           });
       }
     };
@@ -50,10 +52,12 @@ export const KeycloakProvider = ({
           dispatch(setUserDetails(userInfo));
         } else {
           dispatch(setAuthenticated(false));
+          dispatch(setToken(''));
         }
       } catch (error) {
         console.log('Keycloak initialization error: ', error);
         dispatch(setAuthenticated(false));
+        dispatch(setToken(''));
       }
     };
 
