@@ -1,4 +1,5 @@
 import { http, HttpResponse } from 'msw';
+import { baseUrl } from '../../config/defaults';
 import { server } from '../../mocks/server';
 import {
   fireEvent,
@@ -6,7 +7,6 @@ import {
   screen,
   waitFor,
 } from '../../utils/test-utils';
-import { baseUrl } from '../api/apiSlice';
 import { CreateGenre } from './CreateGenre';
 
 describe('Test CreateGenre page', () => {

@@ -1,5 +1,5 @@
 import axios, { AxiosProgressEvent } from 'axios';
-import { baseUrl } from '../api/apiSlice';
+import { baseUrl } from '../../config/defaults';
 
 export const API_ENDPOINT = `${baseUrl}/videos`;
 

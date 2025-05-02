@@ -7,4 +7,6 @@ export const initialOptions: ListOptions = {
   search: '',
 };
 
-export const drawerWidth = 240;
+export const drawerWidth: number = 240;
+
+export const baseUrl: string = 'http://localhost:8000/api';
