@@ -6,6 +6,7 @@ import {
   ThunkAction,
 } from '@reduxjs/toolkit';
 import { apiSlice } from '../features/api/apiSlice';
+import { authSlice } from '../features/auth/authSlice';
 import { castMemberApiSlice } from '../features/cast/castMemberSlice';
 import { categoryApiSlice } from '../features/category/categorySlice';
 import { genreApiSlice } from '../features/genre/genreSlice';
@@ -25,6 +26,8 @@ const rootReducer = combineReducers({
   [videoApiSlice.reducerPath]: apiSlice.reducer,
   // @ts-ignore
   uploadSlice: uploadReducer,
+  // @ts-ignore
+  auth: authSlice.reducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
@@ -32,7 +35,12 @@ export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
     reducer: rootReducer,
     preloadedState,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({ serializableCheck: false })
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: ['upload/addUpload", "upload/setUploadProgress'],
+          ignoredPaths: ['uploadSlice.path'],
+        },
+      })
         .prepend(uploadQueue.middleware)
         .concat(apiSlice.middleware),
   });
