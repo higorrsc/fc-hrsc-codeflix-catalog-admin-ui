@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { SnackbarProvider } from 'notistack';
 import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
 import { setupStore, type AppStore, type RootState } from '../app/store';
+import { KeycloakProvider } from '../providers/KeycloakProvider';
 // As a basic setup, import your same slice reducers
 
 // This type interface extends the default options for render from RTL, as well
@@ -32,7 +33,9 @@ export function renderWithProviders(
 
   const Wrapper = ({ children }: PropsWithChildren) => (
     <Provider store={store}>
-      <SnackbarProvider maxSnack={3}>{children}</SnackbarProvider>
+      <KeycloakProvider>
+        <SnackbarProvider maxSnack={3}>{children}</SnackbarProvider>
+      </KeycloakProvider>
     </Provider>
   );
 
