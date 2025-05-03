@@ -24,7 +24,7 @@ type Props = {
 export const UploadList: React.FC<Props> = () => {
   const uploadList = useAppSelector(selectUploads);
 
-  if (!uploadList) {
+  if (!uploadList || uploadList.length === 0) {
     return null;
   }
 
