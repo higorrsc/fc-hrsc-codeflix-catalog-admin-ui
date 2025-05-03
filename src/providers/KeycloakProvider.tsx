@@ -37,14 +37,12 @@ export const KeycloakProvider = ({
     keycloak.onTokenExpired = () => {
       updateToken(true);
     };
-
     const initKeycloak = async () => {
       try {
         const authenticated = await keycloak.init({
           onLoad: 'login-required',
-          flow: 'implicit',
+          flow: 'standard',
         });
-        console.log(authenticated);
         if (authenticated) {
           dispatch(setAuthenticated(true));
           dispatch(setToken(keycloak.token));
@@ -64,5 +62,6 @@ export const KeycloakProvider = ({
     initKeycloak();
   }, [dispatch]);
 
+  // Render children only when Keycloak init is done
   return <>{children}</>;
 };
