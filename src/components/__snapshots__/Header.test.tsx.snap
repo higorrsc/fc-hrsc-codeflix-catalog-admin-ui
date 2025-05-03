@@ -57,7 +57,7 @@ exports[`Test Header should render correctly 1`] = `
           tabindex="0"
           type="button"
         >
-          Login
+          Logout
         </button>
       </div>
     </header>
