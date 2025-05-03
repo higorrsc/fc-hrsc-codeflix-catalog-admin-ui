@@ -117,7 +117,7 @@ export function VideoForm({
                   <FormControl fullWidth>
                     <TextField
                       required
-                      name='year-launched'
+                      name='year_launched'
                       label='Year Launched'
                       value={video.year_launched}
                       disabled={isDisabled}
@@ -168,7 +168,7 @@ export function VideoForm({
               </Grid>
               <Grid size={{ xs: 12 }}>
                 <AutoCompleteField
-                  name='cast-member'
+                  name='cast_members'
                   label='Cast Member'
                   options={castMembers || []}
                   value={video.cast_members || []}
