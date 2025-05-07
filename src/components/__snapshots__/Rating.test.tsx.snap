@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Rating Component should render correctly for rating "L" and match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiBox-root css-pz392n"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
+    >
+      L
+    </p>
+  </div>
+</DocumentFragment>
+`;
