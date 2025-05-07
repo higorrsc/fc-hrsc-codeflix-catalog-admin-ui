@@ -66,6 +66,7 @@ export const ResponsiveDrawer = ({ open, onClose }: Props) => {
           display: { xs: 'block', sm: 'none' },
           '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
         }}
+        data-testid='drawer'
       >
         {drawer}
       </Drawer>

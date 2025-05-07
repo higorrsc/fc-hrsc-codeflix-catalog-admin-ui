@@ -60,6 +60,7 @@ export const InputFile: React.FC<Props> = ({ onAdd, onRemove }) => {
         style={{ display: 'none' }}
         ref={fileInputRef}
         onChange={handleChange}
+        data-testid='input-file'
       />
     </>
   );
